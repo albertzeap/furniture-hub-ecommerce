@@ -1,0 +1,47 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "Albert",
+            "lastName": "Paez",
+            "username": "albertzeap",
+            "password": "password"
+        }
+    ],
+    "card":[
+        {
+            "id": 1,
+            "userId": 1,
+            "card_number": "4535900311475880",
+            "expiration_date": "09/2025",
+            "cvv": "145"
+        }
+       
+    ],
+    "address":[
+        {
+            "id": 1,
+            "userid": 1,
+            "street": "123 Test Street",
+            "city": "Fakeville",
+            "state": "California"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "productName": "Leather Chair",
+            "price": 200
+        },
+        {
+            "id": 2,
+            "productName": "Wooden Desk",
+            "price": 350
+          },
+          {
+            "id": 3,
+            "productName": "Fabric Sofa",
+            "price": 500
+          }
+    ]
+}
