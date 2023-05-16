@@ -14,14 +14,19 @@ function App() {
     <BrowserRouter>
       <div className="app">
         <Navbar/>
+        
+        <Routes>
+          <Route path="/" exact element={<ProductList/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login/>}/>
+        </Routes>
+
+
+
+
       </div>
 
 
-      <Routes>
-        <Route path="/" exact element={<ProductList/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
-      </Routes>
     </BrowserRouter>
   );
 }

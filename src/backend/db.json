@@ -31,17 +31,72 @@
         {
             "id": 1,
             "productName": "Leather Chair",
-            "price": 200
+            "price": 200,
+            "image": "https://images.unsplash.com/photo-1518010741929-b44e969137d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+            "description": "A comfortable leather chair that adds a touch of elegance to any room."
         },
         {
             "id": 2,
             "productName": "Wooden Desk",
-            "price": 350
-          },
-          {
+            "price": 350,
+            "image": "https://images.unsplash.com/photo-1564383424695-05a0668266ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1241&q=80",
+            "description": "A sturdy wooden desk that provides ample workspace and enhances productivity."
+        },
+        {
             "id": 3,
             "productName": "Fabric Sofa",
-            "price": 500
-          }
+            "price": 500,
+            "image": "https://images.unsplash.com/photo-1464564531096-f0163633a18a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFicmljJTIwc29mYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+            "description": "A cozy fabric sofa that offers comfort and style for relaxation."
+        },
+        {
+            "id": 4,
+            "productName": "Modern Coffee Table",
+            "price": 250,
+            "image": "https://images.unsplash.com/photo-1599008633587-95b5da16d29f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGNvZmZlZSUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+            "description": "A sleek and contemporary coffee table that enhances the aesthetics of your living space."
+        },
+        {
+            "id": 5,
+            "productName": "Bookshelf",
+            "price": 150,
+            "image": "https://images.unsplash.com/photo-1593430980369-68efc5a5eb34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Ym9va3NoZWxmfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+            "description": "A functional bookshelf that provides storage for your favorite books and decor items."
+        },
+        {
+            "id": 6,
+            "productName": "Dining Table Set",
+            "price": 800,
+            "image": "https://images.unsplash.com/photo-1604578762246-41134e37f9cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGluaW5nJTIwdGFibGV8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+            "description": "A stylish dining table set that brings people together for memorable meals."
+        },
+        {
+            "id": 7,
+            "productName": "Office Chair",
+            "price": 300,
+            "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8b2ZmaWNlJTIwY2hhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+            "description": "An ergonomic office chair that ensures comfort and supports good posture during work hours."
+        },
+        {
+            "id": 8,
+            "productName": "TV Stand",
+            "price": 180,
+            "image": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dHYlMjBzdGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1000&q=60",
+            "description": "A functional TV stand that holds your television and provides storage for media devices."
+        },
+        {
+            "id": 9,
+            "productName": "Bedside Table",
+            "price": 80,
+            "image": "https://images.unsplash.com/photo-1499933374294-4584851497cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVkc2lkZSUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+            "description": "A compact bedside table that keeps your essentials within arm's reach while you sleep."
+        },
+        {
+            "id": 10,
+            "productName": "Lounge Chair",
+            "price": 400,
+            "image": "https://images.unsplash.com/photo-1606744824163-985d376605aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG91bmdlJTIwY2hhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
+            "description": "A comfortable lounge chair for relaxation, reading, or enjoying a cup of coffee."
+        }
     ]
 }
