@@ -15,12 +15,18 @@ export const ProductList = () => {
         console.log("This component has mounted!");
     }, [])
 
-    const cart = useSelector((state) => state.cartList.value);
+    const cart = useSelector((state) => state.cartList);
     const dispatch = useDispatch();
 
     const addToCart = (product) => {
         alert(product.productName);
-        dispatch(add());
+        dispatch(add(product));
+
+        console.log(cart)
+    }
+    const removeFromCart = (product) => {
+        alert(product.productName);
+        dispatch(remove(product));
 
         console.log(cart)
     }
@@ -29,8 +35,6 @@ export const ProductList = () => {
         <div className="container">
             <section>
                 <h1 className="text-center">Product View</h1>
-                <h1 className="text-center">{cart}</h1>
-
             </section>
 
             <div className="row justify-content-center">
@@ -43,8 +47,8 @@ export const ProductList = () => {
                             <img className="card-img-top" src={product.image} alt="Title" style={{height: "15rem"}}/>
                             <div className="card-body">
                                 <h4 className="card-title">{product.productName}</h4>
-                                <p className="card-text" style={{height: "5rem"}}>{product.description}</p>
-                                <p className="card-text">${product.price}</p>
+                                <p className="card-text text-muted" style={{height: "5rem"}}>{product.description}</p>
+                                <h6 className="card-text">${product.price}</h6>
                                 <button className="btn btn-primary" onClick={() => addToCart(product)}>Add to cart</button>
                             </div>
                         </div>
