@@ -98,5 +98,13 @@
             "image": "https://images.unsplash.com/photo-1606744824163-985d376605aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG91bmdlJTIwY2hhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
             "description": "A comfortable lounge chair for relaxation, reading, or enjoying a cup of coffee."
         }
+    ],
+    "orders": [
+        {
+            "id": 1,
+            "userId": 1,
+            "products": [1,2,3,4],
+            "totalPrice": 1300
+        }
     ]
 }

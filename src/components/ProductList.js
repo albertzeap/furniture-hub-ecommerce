@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProductApi from "../apis/ProductApi";
 
+import { useSelector, useDispatch } from 'react-redux'
+import { add, remove } from "../redux/cartSlice";
+
 export const ProductList = () => {
 
     // Begin with an empty state of products
@@ -12,11 +15,21 @@ export const ProductList = () => {
         console.log("This component has mounted!");
     }, [])
 
+    const cart = useSelector((state) => state.cartList.value);
+    const dispatch = useDispatch();
+
+    const addToCart = (product) => {
+        alert(product.productName);
+        dispatch(add());
+
+        console.log(cart)
+    }
 
     return(
         <div className="container">
             <section>
                 <h1 className="text-center">Product View</h1>
+                <h1 className="text-center">{cart}</h1>
 
             </section>
 
@@ -32,7 +45,7 @@ export const ProductList = () => {
                                 <h4 className="card-title">{product.productName}</h4>
                                 <p className="card-text" style={{height: "5rem"}}>{product.description}</p>
                                 <p className="card-text">${product.price}</p>
-                                <a href="/" class="btn btn-primary">Add to cart</a>
+                                <button className="btn btn-primary" onClick={() => addToCart(product)}>Add to cart</button>
                             </div>
                         </div>
                         

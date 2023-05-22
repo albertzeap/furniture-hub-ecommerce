@@ -3,6 +3,7 @@ import { Navbar } from "./components/Navbar";
 import { ProductList } from "./components/ProductList";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
+import { Cart } from "./components/Cart";
 
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" exact element={<ProductList/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Routes>
 
 
