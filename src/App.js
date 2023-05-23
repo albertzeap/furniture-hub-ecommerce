@@ -7,6 +7,7 @@ import { Cart } from "./components/Cart";
 
 
 import 'bootstrap/dist/css/bootstrap.css';
+import { OrderSummary } from "./components/OrderSummary";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
+          <Route path="/orderSummary" element={<OrderSummary/>}/>
         </Routes>
 
 

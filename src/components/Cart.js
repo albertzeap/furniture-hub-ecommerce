@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { remove } from "../redux/cartSlice";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
 
@@ -33,9 +34,9 @@ export const Cart = () => {
                
                     {
                         
-                        cartList.products.map((product) => (
+                        cartList.products.map((product, i) => (
                             
-                            <div className="card rounded-3 mb-4">
+                            <div key={i} className="card rounded-3 mb-4">
                                 <div className="card-body p-4">
                                     <div className="row d-flex justify-content-between align-items-center">
                                         <div className="col-md-2 col-lg-2 col-xl-2">
@@ -69,11 +70,11 @@ export const Cart = () => {
                     <div className="card sticky-bottom">
                         <div className="card-body">
                             <div className="row d-flex justify-content-between">
-                                <h5 className="text-muted">Total Price: ${cartList.totalPrice} </h5>
+                                <h5 className="text-muted">Total Price: <span className="text-black">${cartList.totalPrice} </span></h5>
                             </div>
                             <br/>
                             <div className="row d-flex justify-content-between align-items-center">
-                                <button type="button" className="btn btn-primary btn-block btn-lg">Proceed to Pay</button>
+                                <Link to="/orderSummary" className="btn btn-primary btn-block btn-lg">Proceed to Pay</Link>
                             </div>
                         </div>
                     </div>     

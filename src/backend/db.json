@@ -103,7 +103,37 @@
         {
             "id": 1,
             "userId": 1,
-            "products": [1,2,3,4],
+            "date": "5/23/2023",
+            "products": [
+                {
+                    "id": 1,
+                    "productName": "Leather Chair",
+                    "price": 200,
+                    "image": "https://images.unsplash.com/photo-1518010741929-b44e969137d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+                    "description": "A comfortable leather chair that adds a touch of elegance to any room."
+                },
+                {
+                    "id": 2,
+                    "productName": "Wooden Desk",
+                    "price": 350,
+                    "image": "https://images.unsplash.com/photo-1564383424695-05a0668266ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1241&q=80",
+                    "description": "A sturdy wooden desk that provides ample workspace and enhances productivity."
+                },
+                {
+                    "id": 3,
+                    "productName": "Fabric Sofa",
+                    "price": 500,
+                    "image": "https://images.unsplash.com/photo-1464564531096-f0163633a18a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFicmljJTIwc29mYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "description": "A cozy fabric sofa that offers comfort and style for relaxation."
+                },
+                {
+                    "id": 4,
+                    "productName": "Modern Coffee Table",
+                    "price": 250,
+                    "image": "https://images.unsplash.com/photo-1599008633587-95b5da16d29f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGNvZmZlZSUyMHRhYmxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60",
+                    "description": "A sleek and contemporary coffee table that enhances the aesthetics of your living space."
+                }
+            ],
             "totalPrice": 1300
         }
     ]
