@@ -3,7 +3,7 @@ import UserApi from "../apis/UserApi";
 import { Link } from "react-router-dom";
 
 import { login } from "../redux/userSlice";
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 export const Login = () => {
 
@@ -12,6 +12,7 @@ export const Login = () => {
     }]);
 
     // const cartList = useSelector((state) => state.cartList);
+    const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -44,20 +45,29 @@ export const Login = () => {
                         
                     </div>
                     <div className="col">
-                        <form name="logForm" onSubmit={handleLogin}>
+
+                        {activeUser.userId != 0 ? 
+                            <div>
+                                <div className="row mt-5"></div>
+                                <Link to="/" className="btn btn-outline-primary">Browse Products</Link>
+                            </div> :  
+                        
+                            <form name="logForm" onSubmit={handleLogin}>
                             
-                            <div className="mb-3">
-                                    <label className="form-label" htmlFor="username">Username</label>
-                                    <input className="form-control" type="text" id="username" name="username" required/><br/>
-                            </div>
-                                
-                            <div className="mb-3">
-                                <label className="form-label" htmlFor="password">Password</label>
-                                <input className="form-control" type="password" id="password" name="password" required/><br/>
-                            </div>
-                    
-                            <input className="btn btn-outline-primary" type="submit" value="Login"/>
-                        </form>
+                                <div className="mb-3">
+                                        <label className="form-label" htmlFor="username">Username</label>
+                                        <input className="form-control" type="text" id="username" name="username" required/><br/>
+                                </div>
+                                    
+                                <div className="mb-3">
+                                    <label className="form-label" htmlFor="password">Password</label>
+                                    <input className="form-control" type="password" id="password" name="password" required/><br/>
+                                </div>
+                        
+                                <input className="btn btn-outline-primary" type="submit" value="Login"/>
+                            </form>
+                        }
+                       
                     </div>
                     <div className="col">
                       

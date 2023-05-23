@@ -1,7 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from "../redux/userSlice";
 
 export const ActiveNavbar = () => {
+
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout());
+        alert("Logged out");
+    }
+
+
     return (
      
         <nav className="navbar sticky-top">
@@ -13,7 +24,7 @@ export const ActiveNavbar = () => {
                         <Link className="nav-link" to="/cart">Cart</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">Logout</Link>
+                        <button className="btn btn-danger" onClick={() => handleLogout()}>Logout</button>
                     </li>
                 </ul>
             </div>
