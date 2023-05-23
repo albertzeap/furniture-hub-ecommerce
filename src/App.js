@@ -4,18 +4,25 @@ import { ProductList } from "./components/ProductList";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import { Cart } from "./components/Cart";
+import { ActiveNavbar } from "./components/ActiveNavbar";
+import { OrderSummary } from "./components/OrderSummary";
+
+import { useSelector, useDispatch } from 'react-redux'
 
 
 import 'bootstrap/dist/css/bootstrap.css';
-import { OrderSummary } from "./components/OrderSummary";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
 function App() {
+
+  const activeUser = useSelector((state) => state.user);
+  console.log(activeUser);
+
   return (
     <BrowserRouter>
       <div className="app">
-        <Navbar/>
+        {activeUser.userId == 0 ? <Navbar/> : <ActiveNavbar/> }
         
         <Routes>
           <Route path="/" exact element={<ProductList/>}/>

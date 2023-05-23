@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from "react";
 import UserApi from "../apis/UserApi";
+import { Link } from "react-router-dom";
+
+import { login } from "../redux/userSlice";
+import { useDispatch } from 'react-redux'
 
 export const Login = () => {
 
-    const [user,setUser] = useState(
-        {
-            id: 0,
-            firstName: "",
-            lastName: "",
-            username: "",
-            password: ""
-        });
+    const [user,setUser] = useState([{
+        id: 0
+    }]);
+
+    // const cartList = useSelector((state) => state.cartList);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         console.log(user);
+        
+        if(user == undefined){
+           alert("Invalid Credentials")
+        }
+        else if(user.id > 0){
+            alert("Login sucessfull!");
+            dispatch(login(user));
+        }
+
+
     }, [user])
 
     const handleLogin = (e) => {
         e.preventDefault();
         UserApi.getUserByUsernamePassword(setUser,e.target.username.value, e.target.password.value);
+        e.target.username.value = "";
+        e.target.password.value = "";
     }
 
     return(
@@ -46,7 +60,7 @@ export const Login = () => {
                         </form>
                     </div>
                     <div className="col">
-                        {user.id === 0 ? <h1>Not loaded</h1> : <h1>{user[0].username}</h1>}
+                      
                     </div>
                 </div>
             </div>

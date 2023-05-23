@@ -18,7 +18,8 @@ const UserApi = {
             return result.json();
         })
         .then((data) =>{
-            setUser(data);
+            console.log(data[0])
+            setUser(data[0]);
                        
         })
         .catch((error)=>{console.log(error)});

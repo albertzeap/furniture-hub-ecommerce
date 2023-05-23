@@ -48,7 +48,7 @@ export const ProductList = () => {
                             <div className="card-body">
                                 <h4 className="card-title">{product.productName}</h4>
                                 <p className="card-text text-muted" style={{height: "5rem"}}>{product.description}</p>
-                                <h6 className="card-text">${product.price}</h6>
+                                <h6 className="card-text">${product.price}.00</h6>
                                 <button className="btn btn-primary" onClick={() => addToCart(product)}>Add to cart</button>
                             </div>
                         </div>
