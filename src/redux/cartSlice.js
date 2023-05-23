@@ -19,7 +19,8 @@ export const cartSlice = createSlice({
       state.products.push(action.payload);
     },
     remove: (state) => {
-      state.pop();
+
+      state.totalPrice -= state.products.pop().price;
     }
   },
 })

@@ -19,7 +19,7 @@ export const ProductList = () => {
     const dispatch = useDispatch();
 
     const addToCart = (product) => {
-        alert(product.productName);
+        alert("Added " + product.productName);
         dispatch(add(product));
 
         console.log(cart)

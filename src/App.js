@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 
 import 'bootstrap/dist/css/bootstrap.css';
+import { Orders } from "./components/Orders";
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/orderSummary" element={<OrderSummary/>}/>
+          <Route path="/orders" element={<Orders/>}/>
         </Routes>
 
 
