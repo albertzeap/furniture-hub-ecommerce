@@ -18,9 +18,16 @@ export const cartSlice = createSlice({
       state.totalPrice += action.payload.price;
       state.products.push(action.payload);
     },
-    remove: (state) => {
+    remove: (state, action) => {
+     
+      // Get the position of the first occurence of the object to be deleted
+      const pos = state.products.map( product => product.id).indexOf(action.payload.id);
 
-      state.totalPrice -= state.products.pop().price;
+      // Subtract the value of that item from the total price
+      state.totalPrice -= state.products[pos].price;
+
+      // Remove it from the cart 
+      state.products.splice(pos, 1);
     },
 
     empty: (state) => {
