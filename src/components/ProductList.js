@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductApi from "../apis/ProductApi";
 
 import { useSelector, useDispatch } from 'react-redux'
-import { add, remove } from "../redux/cartSlice";
+import { add } from "../redux/cartSlice";
 
 export const ProductList = () => {
 
@@ -21,12 +21,6 @@ export const ProductList = () => {
     const addToCart = (product) => {
         alert("Added " + product.productName);
         dispatch(add(product));
-
-        console.log(cart)
-    }
-    const removeFromCart = (product) => {
-        alert(product.productName);
-        dispatch(remove(product));
 
         console.log(cart)
     }

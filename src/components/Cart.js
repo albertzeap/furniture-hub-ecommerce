@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from 'react-redux'
-import { remove } from "../redux/cartSlice";
+import { remove, empty } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
+import { Button } from "bootstrap";
+import OrderApi from "../apis/OrderApi";
 
 export const Cart = () => {
 
-    const[cart, setCart] = useState([]);
+    const [orderList, setOrderList] = useState([]);
     const cartList = useSelector((state) => state.cartList);
+    const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log(cartList);
+        OrderApi.getOrders(setOrderList);
     },[])
 
     const removeFromCart = (product) => {
@@ -19,6 +22,16 @@ export const Cart = () => {
         dispatch(remove(product));
 
         console.log(cartList);
+    }
+
+    const handleCheckout = () => {
+        let id = orderList.length + 1;
+        if(id === orderList.length || cartList.totalPrice === 0){
+            alert("Cart is empty");
+        } else{
+            OrderApi.createOrder(id, activeUser.userId, new Date().toLocaleDateString("en-US"),cartList.products, cartList.totalPrice);
+            dispatch(empty());
+        }
     }
 
 
@@ -80,7 +93,8 @@ export const Cart = () => {
                             </div>
                             <br/>
                             <div className="row d-flex justify-content-between align-items-center">
-                                <Link to="/orderSummary" className="btn btn-primary btn-block btn-lg">Proceed to Pay</Link>
+                                {activeUser.userId === 0 ? <Link to="/login" className="btn btn-primary btn-block btn-lg">Proceed to Pay</Link> : <button onClick={handleCheckout} className="btn btn-primary btn-block btn-lg">Proceed to Pay</button> }
+                                
                             </div>
                         </div>
                     </div>     

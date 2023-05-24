@@ -18,7 +18,7 @@ export const Login = () => {
     useEffect(() => {
         console.log(user);
         
-        if(user == undefined){
+        if(user === undefined){
            alert("Invalid Credentials")
         }
         else if(user.id > 0){
@@ -46,7 +46,7 @@ export const Login = () => {
                     </div>
                     <div className="col">
 
-                        {activeUser.userId != 0 ? 
+                        {activeUser.userId !== 0 ? 
                             <div>
                                 <div className="row mt-5"></div>
                                 <Link to="/" className="btn btn-outline-primary">Browse Products</Link>

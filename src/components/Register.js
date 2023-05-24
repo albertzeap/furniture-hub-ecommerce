@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import UserApi from "../apis/UserApi";
 
 export const Register = () => {
+
+
+    const [userList, setUserList] = useState([]);
+
+    useEffect(() => {
+
+        UserApi.getUsers(setUserList);
+        console.log("Mounted!");
+
+
+    },[])
+
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        let id = userList.length + 1;
+        let firstName = e.target.fname.value;
+        let lastName = e.target.lname.value;
+        let pnumber = e.target.phoneNumber.value;
+        let username = e.target.username.value;
+        let password = e.target.password.value;
+
+        console.log(id);
+
+        UserApi.createUser(id, firstName, lastName, pnumber, username, password);
+
+        e.target.fname.value = "";
+        e.target.lname.value = "";
+        e.target.phoneNumber.value = "";
+        e.target.username.value = "";
+        e.target.password.value = ""; 
+    }
+
+
     return(
         <section>
              <div className="container text-center">
@@ -10,7 +45,7 @@ export const Register = () => {
 
             </div>  
             <div className="col">
-                <form name="regform" method="post">
+                <form name="regform" method="post" onSubmit={handleRegister}>
                     
                     <fieldset>
                         <legend>Personal Information</legend>

@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        {activeUser.userId == 0 ? <Navbar/> : <ActiveNavbar/> }
+        {activeUser.userId === 0 ? <Navbar/> : <ActiveNavbar/> }
         
         <Routes>
           <Route path="/" exact element={<ProductList/>}/>

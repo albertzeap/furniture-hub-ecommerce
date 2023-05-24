@@ -21,11 +21,17 @@ export const cartSlice = createSlice({
     remove: (state) => {
 
       state.totalPrice -= state.products.pop().price;
+    },
+
+    empty: (state) => {
+      state.products = []
+      state.totalPrice = 0;
     }
+
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { add, remove} = cartSlice.actions
+export const { add, remove, empty} = cartSlice.actions
 
 export default cartSlice.reducer
