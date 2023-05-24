@@ -1,0 +1,70 @@
+
+/* Product View Styles */
+#productCard{
+    border-bottom: 1px solid  #587547;
+}
+
+#productName {
+    color: #3D2813;
+}
+
+#addToCart {
+    /* border: 1px solid #587547 ; */
+    color: #587547;
+}
+#addToCart:hover{
+    background-color: #587547;
+    color: white;
+}
+
+/* Order Summary Styles  */
+#receipt{
+    color: #3D2813;
+}
+
+#totalPrice{
+    color: #587547;
+}
+
+#date{
+    font-style: italic;
+}
+
+/* Cart Styles */
+#checkoutButton {
+    background-color: #587547;;
+}
+#checkoutButton:hover {
+    background-color: #3e5531;;
+}
+
+/* Active Nav Styles */
+#activeNavLink{
+    color:#587547 ;
+}
+
+/* Login Page Styles */
+#loginButton {
+    border: 1px solid #587547 ;
+    color: #587547;
+}
+#loginButton:hover{
+    background-color: #587547;
+    color: white;
+}
+
+/* Register Page Styles */
+#registerButton {
+    border: 1px solid #587547 ;
+    color: #587547;
+}
+#registerButton:hover{
+    background-color: #587547;
+    color: white;
+}
+
+/* Orders  */
+#orderHistoryTable{
+    background-color: white;
+    border-radius: 10px;
+}

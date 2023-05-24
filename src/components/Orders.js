@@ -3,46 +3,86 @@ import OrderApi from "../apis/OrderApi";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
+
 export const Orders = () => {
 
     const activeUser = useSelector((state) => state.user);
     const [orders, setOrders] = useState([]);
+    const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
         OrderApi.getOrderByUserId(setOrders, activeUser.userId);
 
     }, [])
 
+    const handleToggle = () => {
+        setToggle(!toggle);
+    }
+
 
     return(
         
-        <div className="container py-5 h-100">
+        <div className="container">
             <section>
-                <h1 className="text-center">Your Orders</h1>
+                <h1 className="text-center">Your Order History</h1>
+                <p className="text-center">Below is a list of your past orders. You can view details of each order by clicking on the order ID.</p>
             </section>
-           <table className="table table-hover">
-                <thead>
-                    <tr>
-                    <th scope="col">Order ID</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Items Bought</th>
-                    <th scope="col">Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                 
-                    {orders.map((order) => (
-                        <tr key={order.id}>
-                            <th scope="row"><button className="btn btn-link">{order.id}</button></th>
-                            <td>{order.date}</td>
-                            <td>{order.products.length}</td>
-                            {order.totalPrice > 2000 ? <td>${order.totalPrice * 0.9}.00</td> : <td>${order.totalPrice}.00</td> }
-                            
-                        </tr>
-                    ))}
+            <br/>
+            <section>
+                <table id="orderHistoryTable" className="table table-hover">
+                        <thead>
+                            <tr>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Items Bought</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {orders.map((order) => (
+                            <tr key={order.id}>
+                                <th scope="row">
+                                    <button className="btn btn-link" onClick={handleToggle}>{order.id}</button>
+                                </th>
 
-                </tbody>
-            </table>
+                                <td>{order.date}</td>
+                                <td>{order.products.length}</td>
+
+                                {order.totalPrice > 2000 ? (
+                                <td>${order.totalPrice * 0.9}.00</td>
+                                ) : (
+                                <td>${order.totalPrice}.00</td>
+                                )}
+
+                                {toggle === true ? (
+                                <td>
+
+                                    {order.products.map((product, i) => (
+                                    <div key={i} className="row">
+
+                                        <div className="col-md-8 col-lg-9">
+                                            <p>{i+1}. {product.productName}</p>
+                                        </div>
+
+                                        <div className="col-md-4 col-lg-3">
+                                            <p>${product.price}.00</p>
+                                        </div>
+                                    </div>
+                                    ))}
+                                </td>
+                                ) : (
+                                <td>...</td>
+                                )}
+                            </tr>
+                            ))}
+
+                        </tbody>
+                    </table>
+            </section>
+
+            
 
         
         </div>

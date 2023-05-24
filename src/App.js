@@ -8,10 +8,12 @@ import { ActiveNavbar } from "./components/ActiveNavbar";
 import { OrderSummary } from "./components/OrderSummary";
 
 import { useSelector, useDispatch } from 'react-redux'
+import { Orders } from "./components/Orders";
 
 
 import 'bootstrap/dist/css/bootstrap.css';
-import { Orders } from "./components/Orders";
+
+
 // Put any other imports below so that CSS from your
 // components takes precedence over default styles.
 

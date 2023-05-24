@@ -66,7 +66,7 @@ export const Login = () => {
                                     <input className="form-control" type="password" id="password" name="password" required/><br/>
                                 </div>
                         
-                                <input className="btn btn-outline-primary" type="submit" value="Login"/>
+                                <input id="loginButton" className="btn btn-outline-primary" type="submit" value="Login"/>
                             </form>
                         }
                        

@@ -5,6 +5,8 @@ import { remove, empty } from "../redux/cartSlice";
 import { Link, useNavigate } from "react-router-dom";
 import OrderApi from "../apis/OrderApi";
 
+import "../styles/theme.css"
+
 export const Cart = () => {
 
     const [orderList, setOrderList] = useState([]);
@@ -98,7 +100,7 @@ export const Cart = () => {
                             </div>
                             <br/>
                             <div className="row d-flex justify-content-between align-items-center">
-                                {activeUser.userId === 0 ? <Link to="/login" className="btn btn-primary btn-block btn-lg">Proceed to Pay</Link> : <button onClick={handleCheckout} className="btn btn-primary btn-block btn-lg">Proceed to Pay</button> }
+                                {activeUser.userId === 0 ? <Link id="checkoutButton" to="/login" className="btn btn-primary btn-block btn-lg">Proceed to Pay</Link> : <button id="checkoutButton" onClick={handleCheckout} className="btn btn-primary btn-block btn-lg">Proceed to Pay</button> }
                                 
                             </div>
                         </div>

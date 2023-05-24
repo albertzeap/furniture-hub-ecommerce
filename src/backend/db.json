@@ -75,7 +75,7 @@
       "productName": "Office Chair",
       "price": 300,
       "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8b2ZmaWNlJTIwY2hhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
-      "description": "An ergonomic office chair that ensures comfort and supports good posture during work hours."
+      "description": "An ergonomic office chair that ensures comfort and supports good posture."
     },
     {
       "id": 8,
@@ -177,6 +177,50 @@
         }
       ],
       "totalPrice": 3210
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "date": "5/24/2023",
+      "products": [
+        {
+          "id": 3,
+          "productName": "Fabric Sofa",
+          "price": 500,
+          "image": "https://images.unsplash.com/photo-1464564531096-f0163633a18a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFicmljJTIwc29mYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "description": "A cozy fabric sofa that offers comfort and style for relaxation."
+        },
+        {
+          "id": 2,
+          "productName": "Wooden Desk",
+          "price": 350,
+          "image": "https://images.unsplash.com/photo-1564383424695-05a0668266ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1241&q=80",
+          "description": "A sturdy wooden desk that provides ample workspace and enhances productivity."
+        }
+      ],
+      "totalPrice": 850
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "date": "5/24/2023",
+      "products": [
+        {
+          "id": 2,
+          "productName": "Wooden Desk",
+          "price": 350,
+          "image": "https://images.unsplash.com/photo-1564383424695-05a0668266ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1241&q=80",
+          "description": "A sturdy wooden desk that provides ample workspace and enhances productivity."
+        },
+        {
+          "id": 3,
+          "productName": "Fabric Sofa",
+          "price": 500,
+          "image": "https://images.unsplash.com/photo-1464564531096-f0163633a18a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFicmljJTIwc29mYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+          "description": "A cozy fabric sofa that offers comfort and style for relaxation."
+        }
+      ],
+      "totalPrice": 850
     }
   ]
 }

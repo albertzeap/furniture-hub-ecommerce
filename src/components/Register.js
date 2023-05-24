@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import UserApi from "../apis/UserApi";
 
+import "../styles/theme.css"
+
 export const Register = () => {
 
 
@@ -85,7 +87,7 @@ export const Register = () => {
                     </fieldset>
 
                     <div className="mb-3">
-                        <input className="btn btn-outline-primary" type="submit" value="Create Account"/>
+                        <input id="registerButton" className="btn btn-outline-primary" type="submit" value="Create Account"/>
                     </div>
                 </form>
             </div>
