@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { remove, empty } from "../redux/cartSlice";
-import { Link } from "react-router-dom";
-import { Button } from "bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import OrderApi from "../apis/OrderApi";
 
 export const Cart = () => {
@@ -12,6 +11,7 @@ export const Cart = () => {
     const cartList = useSelector((state) => state.cartList);
     const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         OrderApi.getOrders(setOrderList);
@@ -31,6 +31,7 @@ export const Cart = () => {
         } else{
             OrderApi.createOrder(id, activeUser.userId, new Date().toLocaleDateString("en-US"),cartList.products, cartList.totalPrice);
             dispatch(empty());
+            navigate("/orderSummary")
         }
     }
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserApi from "../apis/UserApi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { login } from "../redux/userSlice";
 import { useSelector, useDispatch } from 'react-redux'
@@ -14,6 +14,7 @@ export const Login = () => {
     // const cartList = useSelector((state) => state.cartList);
     const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(user);
@@ -24,6 +25,7 @@ export const Login = () => {
         else if(user.id > 0){
             alert("Login sucessfull!");
             dispatch(login(user));
+            navigate("/");
         }
 
 

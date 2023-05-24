@@ -26,33 +26,20 @@ export const Orders = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <tr> */}
+                 
                     {orders.map((order) => (
                         <tr key={order.id}>
-                            <th scope="row"><Link>{order.id}</Link></th>
+                            <th scope="row"><button className="btn btn-link">{order.id}</button></th>
                             <td>{order.date}</td>
                             <td>{order.products.length}</td>
                             <td>${order.totalPrice}.00</td>
                         </tr>
                     ))}
-                    {/* <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr> */}
+
                 </tbody>
             </table>
+
+        
         </div>
     );  
 

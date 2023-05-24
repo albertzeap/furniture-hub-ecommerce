@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from "../redux/userSlice";
 
 export const ActiveNavbar = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch(logout());
         alert("Logged out");
+        navigate("/login");
     }
 
 
