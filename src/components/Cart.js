@@ -29,9 +29,13 @@ export const Cart = () => {
         if(id === orderList.length || cartList.totalPrice === 0){
             alert("Cart is empty");
         } else{
+            
             OrderApi.createOrder(id, activeUser.userId, new Date().toLocaleDateString("en-US"),cartList.products, cartList.totalPrice);
             dispatch(empty());
-            navigate("/orderSummary")
+
+            setTimeout(() => {
+                navigate("/orderSummary")
+            }, 1000);
         }
     }
 

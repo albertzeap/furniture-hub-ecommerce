@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import OrderApi from "../apis/OrderApi";
+import { useSelector } from "react-redux";
 
 export const OrderSummary = () => {
 
     const [orderList, setOrderList] = useState([]);
+    const [discount, setDiscount] = useState(0);
+    const activeUser = useSelector((state) => state.user);
+    
 
     useEffect(() => {
-        OrderApi.getOrderByUserId(setOrderList, 1);
-
+        OrderApi.getOrderByUserId(setOrderList, activeUser.userId);
     }, [])
 
 
@@ -51,19 +54,20 @@ export const OrderSummary = () => {
                                         <p>$299.99</p>
                                     </div>
                                 </div> */}
-                                {/* <div className="row">
+                                <div className="row">
                                     <div className="col-md-8 col-lg-9">
-                                        <p className="mb-0">Shipping</p>
+                                        <p className="mb-0">Discount</p>
                                     </div>
                                     <div className="col-md-4 col-lg-3">
-                                        <p className="mb-0">£33.00</p>
+                                        {orderList.length > 0 ? <p className="mb-0">-${orderList[orderList.length - 1].totalPrice > 2000 ? orderList[orderList.length - 1].totalPrice * 0.1 : 0 }.00</p> : <p>...</p> }
+                                        
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
 
                             <div className="row my-4">
                                 <div className="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-                                    {orderList.length > 0 ? <p className="lead fw-bold mb-0">${orderList[orderList.length - 1].totalPrice}.00</p> : <p>...</p>}
+                                    {orderList.length > 0 ? <p className="lead fw-bold mb-0">${orderList[orderList.length - 1].totalPrice > 2000 ? orderList[orderList.length - 1].totalPrice * 0.9 : orderList[orderList.length - 1].totalPrice  }.00</p> : <p>...</p>}
                                 </div>
                             </div>
                         </div>

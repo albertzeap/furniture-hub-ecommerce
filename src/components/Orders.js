@@ -15,7 +15,11 @@ export const Orders = () => {
 
 
     return(
+        
         <div className="container py-5 h-100">
+            <section>
+                <h1 className="text-center">Your Orders</h1>
+            </section>
            <table className="table table-hover">
                 <thead>
                     <tr>
@@ -32,7 +36,8 @@ export const Orders = () => {
                             <th scope="row"><button className="btn btn-link">{order.id}</button></th>
                             <td>{order.date}</td>
                             <td>{order.products.length}</td>
-                            <td>${order.totalPrice}.00</td>
+                            {order.totalPrice > 2000 ? <td>${order.totalPrice * 0.9}.00</td> : <td>${order.totalPrice}.00</td> }
+                            
                         </tr>
                     ))}
 
