@@ -7,13 +7,12 @@ import "../styles/theme.css"
 export const OrderSummary = () => {
 
     const [orderList, setOrderList] = useState([]);
-    const [discount, setDiscount] = useState(0);
     const activeUser = useSelector((state) => state.user);
     
 
     useEffect(() => {
         OrderApi.getOrderByUserId(setOrderList, activeUser.userId);
-    }, [])
+    }, [activeUser.userId])
 
 
     return(
@@ -48,14 +47,7 @@ export const OrderSummary = () => {
                                     </div>
                                 </div>
                                 )) : <></>}
-                                {/* <div className="row">
-                                    <div className="col-md-8 col-lg-9">
-                                        <p>BEATS Solo 3 Wireless Headphones</p>
-                                    </div>
-                                    <div className="col-md-4 col-lg-3">
-                                        <p>$299.99</p>
-                                    </div>
-                                </div> */}
+                               
                                 <div className="row">
                                     <div className="col-md-8 col-lg-9">
                                         <p className="mb-0">Discount</p>

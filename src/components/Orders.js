@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import OrderApi from "../apis/OrderApi";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -14,7 +13,7 @@ export const Orders = () => {
     useEffect(() => {
         OrderApi.getOrderByUserId(setOrders, activeUser.userId);
 
-    }, [])
+    }, [activeUser.userId])
 
     const handleToggle = () => {
         setToggle(!toggle);

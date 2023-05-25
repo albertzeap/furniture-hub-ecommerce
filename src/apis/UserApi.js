@@ -65,7 +65,7 @@ const UserApi = {
         .then((data) => {
             console.log(data);
             
-            alert("User account created!" + `\nUsername: ${data.username}`);
+            alert("User account created!\nUsername:" + data.username);
         });
     },
 }

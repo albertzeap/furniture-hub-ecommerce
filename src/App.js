@@ -7,7 +7,7 @@ import { Cart } from "./components/Cart";
 import { ActiveNavbar } from "./components/ActiveNavbar";
 import { OrderSummary } from "./components/OrderSummary";
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Orders } from "./components/Orders";
 
 
@@ -20,7 +20,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 function App() {
 
   const activeUser = useSelector((state) => state.user);
-  console.log(activeUser);
 
   return (
     <BrowserRouter>

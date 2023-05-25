@@ -5,11 +5,13 @@ import { remove, empty } from "../redux/cartSlice";
 import { Link, useNavigate } from "react-router-dom";
 import OrderApi from "../apis/OrderApi";
 
+import Alert from 'react-bootstrap/Alert';
 import "../styles/theme.css"
 
 export const Cart = () => {
 
     const [orderList, setOrderList] = useState([]);
+    const [show, setShow] = useState(false);
     const cartList = useSelector((state) => state.cartList);
     const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
@@ -20,7 +22,8 @@ export const Cart = () => {
     },[])
 
     const removeFromCart = (product) => {
-        alert(product.productName);
+        // alert(product.productName);
+        setShow(true);
         dispatch(remove(product));
 
         console.log(cartList);
@@ -48,7 +51,21 @@ export const Cart = () => {
                 <h1 className="text-center">Your Cart</h1>
             </section>
 
-            <div className="row d-flex justify-content-center align-items-center h-100">
+            {show === true ? 
+                <div className="row sticky-top">
+                    <div className="col"></div>
+                    <div className="col">
+                    <Alert variant="danger" onClose={() => setShow(false)} dismissible>
+                        <Alert.Heading>Removed from Cart</Alert.Heading>
+                    </Alert>
+                    </div>
+                    <div className="col"></div>
+                </div>
+                :
+                    <></>
+                }
+
+            <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-10">
 
                

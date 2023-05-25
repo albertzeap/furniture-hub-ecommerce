@@ -17,7 +17,6 @@ export const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(user);
         
         if(user === undefined){
            alert("Invalid Credentials")
@@ -29,7 +28,7 @@ export const Login = () => {
         }
 
 
-    }, [user])
+    }, [user,dispatch, navigate])
 
     const handleLogin = (e) => {
         e.preventDefault();
