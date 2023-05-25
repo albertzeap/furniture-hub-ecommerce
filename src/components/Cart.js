@@ -49,8 +49,9 @@ export const Cart = () => {
         <div className="container">
             <section>
                 <h1 className="text-center">Your Cart</h1>
+                <p className="text-center">Browse and manage items in your shopping cart. Review your selections, update quantities, and proceed to checkout to complete your purchase.</p>
             </section>
-
+            <br/>
             {show === true ? 
                 <div className="row sticky-top">
                     <div className="col"></div>
