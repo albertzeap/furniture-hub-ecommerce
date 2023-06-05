@@ -2,7 +2,7 @@
 
 ## Overview
 
-A comprehensive e-commerce web application for buying and selling furniture products online. It provides a user-friendly interface where customers can browse through a variety of furniture items, view detailed product information, add products to the cart,  and securely complete their purchases.
+A comprehensive e-commerce web application for buying and selling furniture products online. It provides a user-friendly interface where customers can browse through a variety of furniture items, view detailed product information, add/remove products to the cart, view order history, securely complete their purchases, and view a order confirmation page.
 
 ## Table of Contents
 
@@ -22,11 +22,11 @@ Follow these steps to set up the project locally:
    $ npm install
    $ npm start
    ```
- 2. Start the backend
-   ```shell
-   $ cd furniture-hub-ecommerce
-   $ npm run backend
-   ```
+2. Start the backend
+    ```shell
+    $ cd furniture-hub-ecommerce
+    $ npm run backend
+    ```
  3. Application should now be running!
 
 ## Features
