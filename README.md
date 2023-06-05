@@ -38,6 +38,6 @@ Follow these steps to set up the project locally:
 - Order history and tracking functionality for logged-in users.
 
 ## Technologies
-Front-end: React, React Router, Redux, and Bootstrap
-Back-end: JSON-server
-Database: JSON
+- Front-end: React, React Router, Redux, and Bootstrap
+- Back-end: JSON-server
+- Database: JSON
