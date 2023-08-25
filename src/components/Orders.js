@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import OrderApi from "../apis/OrderApi";
 import { useSelector } from "react-redux";
+import { supabase } from "../apis/supabaseApi";
 
 
 
@@ -11,9 +12,20 @@ export const Orders = () => {
     const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
-        OrderApi.getOrderByUserId(setOrders, activeUser.userId);
+        getOrderByUserId();
+        // OrderApi.getOrderByUserId(setOrders, activeUser.userId);
 
     }, [activeUser.userId])
+
+    async function getOrderByUserId(){
+
+        const { data , error } = await supabase.from('orders').select().eq('userId', activeUser.userId); 
+        setOrders(data);
+
+        if(error){
+            console.error("Error retrieving orders: ", error);
+        }
+    }
 
     const handleToggle = () => {
         setToggle(!toggle);

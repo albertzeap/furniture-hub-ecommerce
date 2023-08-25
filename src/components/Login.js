@@ -5,6 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { login } from "../redux/userSlice";
 import { useSelector, useDispatch } from 'react-redux'
 
+import { supabase } from "../apis/supabaseApi";
+
+
+
 export const Login = () => {
 
     const [user,setUser] = useState([{
@@ -32,9 +36,22 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        UserApi.getUserByUsernamePassword(setUser,e.target.username.value, e.target.password.value);
+        getUserByCredentials(e.target.username.value, e.target.password.value );
+        // UserApi.getUserByUsernamePassword(setUser,e.target.username.value, e.target.password.value);
         e.target.username.value = "";
         e.target.password.value = "";
+    }
+
+    async function getUserByCredentials(username, password){
+
+        const { data, error} = await supabase.from("users").select()
+            .eq('username', username)
+            .eq('password', password);
+        setUser(data[0]);
+
+        if(error){
+            console.error("Error fetching user: ", error);
+        }
     }
 
     return(
