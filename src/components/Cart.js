@@ -7,6 +7,7 @@ import OrderApi from "../apis/OrderApi";
 
 import Alert from 'react-bootstrap/Alert';
 import "../styles/theme.css"
+import { supabase } from "../apis/supabaseApi";
 
 export const Cart = () => {
 
@@ -35,13 +36,29 @@ export const Cart = () => {
             alert("Cart is empty");
         } else{
             
-            OrderApi.createOrder(id, activeUser.userId, new Date().toLocaleDateString("en-US"),cartList.products, cartList.totalPrice);
+            createOrder();
+            // OrderApi.createOrder(id, activeUser.userId, new Date().toLocaleDateString("en-US"),cartList.products, cartList.totalPrice);
             dispatch(empty());
 
             setTimeout(() => {
                 navigate("/orderSummary")
             }, 1000);
         }
+    }
+
+    async function createOrder(){
+
+        const { error } = await supabase.from('orders').insert({
+            userId: activeUser.userId,
+            products: cartList.products,
+            totalPrice: cartList.totalPrice
+        })
+
+        if(error){
+            console.error("Error processing order: ", error);
+        }
+        
+
     }
 
 
@@ -91,7 +108,7 @@ export const Cart = () => {
                                         </div>
                                     
                                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                            <h5 className="mb-0">${product.price}.00</h5>
+                                            <h5 className="mb-0">${product.price}</h5>
                                         </div>
                                         <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                             <button className="btn btn-danger" onClick={() => removeFromCart(product)}>
@@ -114,7 +131,7 @@ export const Cart = () => {
                     <div className="card sticky-bottom">
                         <div className="card-body">
                             <div className="row d-flex justify-content-between">
-                                <h5 className="text-muted">Total Price: <span className="text-black">${cartList.totalPrice}.00</span></h5>
+                                <h5 className="text-muted">Total Price: <span className="text-black">${cartList.totalPrice}</span></h5>
                             </div>
                             <br/>
                             <div className="row d-flex justify-content-between align-items-center">

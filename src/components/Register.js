@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserApi from "../apis/UserApi";
+import { supabase } from "../apis/supabaseApi";
 
 import "../styles/theme.css"
 
@@ -28,13 +29,32 @@ export const Register = () => {
 
         console.log(id);
 
-        UserApi.createUser(id, firstName, lastName, pnumber, username, password);
+        createUser(firstName, lastName, pnumber, username, password);
+        // UserApi.createUser(id, firstName, lastName, pnumber, username, password);
 
         e.target.fname.value = "";
         e.target.lname.value = "";
         e.target.phoneNumber.value = "";
         e.target.username.value = "";
         e.target.password.value = ""; 
+    }
+
+    async function createUser(firstName, lastName, pnumber, username, password){
+
+        const { error} = await supabase.from("users").insert({
+            firstName: firstName, 
+            lastName: lastName, 
+            phoneNumber: pnumber,
+            username: username,
+            password: password
+        });
+        
+
+        if(error){
+            console.error("Error creating user: ", error);
+        }
+        
+
     }
 
 

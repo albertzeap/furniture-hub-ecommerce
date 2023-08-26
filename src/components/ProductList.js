@@ -5,9 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { add } from "../redux/cartSlice";
 
 import Alert from 'react-bootstrap/Alert';
-
-
-
+import { supabase } from "../apis/supabaseApi";
 
 import "../styles/theme.css"
 
@@ -29,7 +27,8 @@ export const ProductList = () => {
 
     useEffect(()=> {
         
-        ProductApi.getProducts(setProductList);
+        // ProductApi.getProducts(setProductList);
+        getProducts();
         console.log("This component has mounted!");
 
         setTimeout(() => {
@@ -37,6 +36,12 @@ export const ProductList = () => {
         },500)
 
     }, [])
+
+    async function getProducts(){
+        const { data } = await supabase.from("products").select();
+        console.log(data)
+        setProductList(data);
+    }
 
 
     const addToCart = (product) => {
@@ -80,6 +85,29 @@ export const ProductList = () => {
 
             <div className="row justify-content-center">
 
+
+
+
+                {productList.length === 0 ? 
+                
+                (
+                     <Card className="text-center m-3" style={{ width: '18rem' }}>
+                     <Card.Img variant="top" src="holder.js/100px180" style={{ height: '15rem' }} />
+                     <Card.Body>
+                         <Placeholder as={Card.Title} animation="glow">
+                             <Placeholder xs={6} />
+                         </Placeholder>
+                         <Placeholder as={Card.Text} animation="glow">
+                             <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
+                             <Placeholder xs={6} /> <Placeholder xs={8} />
+                         </Placeholder>
+                     </Card.Body>
+                 </Card>
+                ) : (
+                    <></>
+                )
+                }
+
               
                 {
                     productList.map((product) => (
@@ -92,7 +120,7 @@ export const ProductList = () => {
                                 <div className="card-body">
                                     <h4 id="productName" className="card-title" style={{color: "#3D2813"}}>{product.productName}</h4>
                                     <p className="card-text text-muted" style={{height: "5rem"}}>{product.description}</p>
-                                    <h5 className="card-text" >${product.price}.00</h5>
+                                    <h5 className="card-text" >${product.price}</h5>
                                     <button id="addToCart" className="btn" onClick={() => addToCart(product)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
