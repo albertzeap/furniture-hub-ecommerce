@@ -3,6 +3,7 @@ import OrderApi from "../apis/OrderApi";
 import { useSelector } from "react-redux";
 
 import "../styles/theme.css"
+import { supabase } from "../apis/supabaseApi";
 
 export const OrderSummary = () => {
 
@@ -11,9 +12,20 @@ export const OrderSummary = () => {
     
 
     useEffect(() => {
-        OrderApi.getOrderByUserId(setOrderList, activeUser.userId);
+        getOrderByUserId();
+        // OrderApi.getOrderByUserId(setOrderList, activeUser.userId);
     }, [activeUser.userId])
 
+
+    async function getOrderByUserId(){
+
+        const { data , error } = await supabase.from('orders').select().eq('userId', activeUser.userId); 
+        setOrderList(data);
+
+        if(error){
+            console.error("Error retrieving orders: ", error);
+        }
+    }
 
     return(
         <div className="container py-5 h-100">
@@ -43,7 +55,7 @@ export const OrderSummary = () => {
                                         <p>{product.productName}</p>
                                     </div>
                                     <div className="col-md-4 col-lg-3">
-                                        <p>${product.price}.00</p>
+                                        <p>${product.price}</p>
                                     </div>
                                 </div>
                                 )) : <></>}
@@ -61,7 +73,7 @@ export const OrderSummary = () => {
 
                             <div className="row my-4">
                                 <div className="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-                                    {orderList.length > 0 ? <p id="totalPrice" className="lead fw-bold mb-0">${orderList[orderList.length - 1].totalPrice > 2000 ? orderList[orderList.length - 1].totalPrice * 0.9 : orderList[orderList.length - 1].totalPrice  }.00</p> : <p>...</p>}
+                                    {orderList.length > 0 ? <p id="totalPrice" className="lead fw-bold mb-0">${orderList[orderList.length - 1].totalPrice > 2000 ? orderList[orderList.length - 1].totalPrice * 0.9 : orderList[orderList.length - 1].totalPrice  }</p> : <p>...</p>}
                                 </div>
                             </div>
                         </div>
