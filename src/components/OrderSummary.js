@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import OrderApi from "../apis/OrderApi";
 import { useSelector } from "react-redux";
 
 import "../styles/theme.css"
@@ -13,7 +12,6 @@ export const OrderSummary = () => {
 
     useEffect(() => {
         getOrderByUserId();
-        // OrderApi.getOrderByUserId(setOrderList, activeUser.userId);
     }, [activeUser.userId])
 
 

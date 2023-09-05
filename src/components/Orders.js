@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import OrderApi from "../apis/OrderApi";
 import { useSelector } from "react-redux";
 import { supabase } from "../apis/supabaseApi";
 
@@ -16,7 +15,6 @@ export const Orders = () => {
   
         getOrderByUserId();
     
-        // OrderApi.getOrderByUserId(setOrders, activeUser.userId);
 
     }, [activeUser.userId])
 

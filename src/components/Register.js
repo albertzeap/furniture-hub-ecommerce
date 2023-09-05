@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import UserApi from "../apis/UserApi";
 import { supabase } from "../apis/supabaseApi";
 
 import "../styles/theme.css"
@@ -7,12 +6,10 @@ import "../styles/theme.css"
 export const Register = () => {
 
 
-    // const [userList, setUserList] = useState([]);
 
     useEffect(() => {
 
-        // UserApi.getUsers(setUserList);
-        // console.log("Mounted!");
+        
 
 
     },[])
@@ -20,17 +17,14 @@ export const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        // let id = userList.length + 1;
         let firstName = e.target.fname.value;
         let lastName = e.target.lname.value;
         let pnumber = e.target.phoneNumber.value;
         let username = e.target.username.value;
         let password = e.target.password.value;
 
-        // console.log(id);
 
         createUser(firstName, lastName, pnumber, username, password);
-        // UserApi.createUser(id, firstName, lastName, pnumber, username, password);
 
         e.target.fname.value = "";
         e.target.lname.value = "";
@@ -41,10 +35,7 @@ export const Register = () => {
 
     async function createUser(firstName, lastName, pnumber, username, password){
 
-        // const bcrypt = require('bcryptjs');
-        // const salt = bcrypt.genSaltSync(10);
-
-
+        
         const { error } = await supabase.from("users").insert({
             firstName: firstName, 
             lastName: lastName, 
