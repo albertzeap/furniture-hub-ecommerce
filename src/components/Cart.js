@@ -19,11 +19,9 @@ export const Cart = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // OrderApi.getOrders(setOrderList);
     },[])
 
     const removeFromCart = (product) => {
-        // alert(product.productName);
         setShow(true);
         dispatch(remove(product));
 
@@ -36,7 +34,6 @@ export const Cart = () => {
         } else{
             
             createOrder();
-            // OrderApi.createOrder(id, activeUser.userId, new Date().toLocaleDateString("en-US"),cartList.products, cartList.totalPrice);
             dispatch(empty());
 
             setTimeout(() => {

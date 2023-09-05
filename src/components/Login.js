@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import UserApi from "../apis/UserApi";
 import { Link, useNavigate } from "react-router-dom";
 
 import { login } from "../redux/userSlice";
@@ -15,7 +14,6 @@ export const Login = () => {
         id: 0
     }]);
 
-    // const cartList = useSelector((state) => state.cartList);
     const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -37,7 +35,6 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         getUserByCredentials(e.target.username.value, e.target.password.value );
-        // UserApi.getUserByUsernamePassword(setUser,e.target.username.value, e.target.password.value);
         e.target.username.value = "";
         e.target.password.value = "";
     }

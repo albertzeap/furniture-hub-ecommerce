@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import ProductApi from "../apis/ProductApi";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { add } from "../redux/cartSlice";
@@ -27,9 +26,7 @@ export const ProductList = () => {
 
     useEffect(()=> {
         
-        // ProductApi.getProducts(setProductList);
         getProducts();
-        // console.log("This component has mounted!");
 
         setTimeout(() => {
             setShowProduct(true);
@@ -144,10 +141,7 @@ export const ProductList = () => {
                                         </Placeholder>
                                     </Card.Body>
                                 </Card>
-                            )   
-
-                        
-                        
+                            )  
                     ))
                 }                
             </div>
