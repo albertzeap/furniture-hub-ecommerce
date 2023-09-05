@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import UserApi from "../apis/UserApi";
+// import UserApi from "../apis/UserApi";
 import { Link, useNavigate } from "react-router-dom";
 
 import { login } from "../redux/userSlice";
@@ -59,6 +59,11 @@ export const Login = () => {
             <div className="container text-center">
                 <div className="row align-items-center">
                     <h1>Login</h1>
+                    <div class="alert alert-success" role="alert">
+                        <p>To test out site, use the following credentials:</p>
+                        <p>Username: username</p>
+                        <p>Password: password</p>
+                    </div>
                     <div className="col">
                         
                     </div>

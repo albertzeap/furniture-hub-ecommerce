@@ -9,7 +9,7 @@ export const Navbar = () => {
     const cart = useSelector((state) => state.cartList);
 
     useEffect(() => {
-        console.log(cart.products.length);
+        // console.log(cart.products.length);
     },[cart])
 
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProductApi from "../apis/ProductApi";
+// import ProductApi from "../apis/ProductApi";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { add } from "../redux/cartSlice";
@@ -29,7 +29,7 @@ export const ProductList = () => {
         
         // ProductApi.getProducts(setProductList);
         getProducts();
-        console.log("This component has mounted!");
+        // console.log("This component has mounted!");
 
         setTimeout(() => {
             setShowProduct(true);
@@ -111,11 +111,12 @@ export const ProductList = () => {
               
                 {
                     productList.map((product) => (
-
+                        
 
                         showProduct === true ? (
-                          
+                           
                             <div key={product.id} id="productCard" className="card text-start text-center m-3 align-content-center" style={{width: "18rem"}}>
+                               
                                 <img className="card-img-top" src={product.image} alt="Title" style={{height: "15rem"}}/>
                                 <div className="card-body">
                                     <h4 id="productName" className="card-title" style={{color: "#3D2813"}}>{product.productName}</h4>
@@ -131,7 +132,7 @@ export const ProductList = () => {
                     
                             ) : (
                             
-                                <Card className="text-center m-3" style={{ width: '18rem' }}>
+                                <Card key={`${product.id}1`} className="text-center m-3" style={{ width: '18rem' }}>
                                     <Card.Img variant="top" src="holder.js/100px180" style={{ height: '15rem' }} />
                                     <Card.Body>
                                         <Placeholder as={Card.Title} animation="glow">

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import UserApi from "../apis/UserApi";
+import React, { useEffect } from "react";
+// import UserApi from "../apis/UserApi";
 import { supabase } from "../apis/supabaseApi";
 
 import "../styles/theme.css"
@@ -7,12 +7,12 @@ import "../styles/theme.css"
 export const Register = () => {
 
 
-    const [userList, setUserList] = useState([]);
+    // const [userList, setUserList] = useState([]);
 
     useEffect(() => {
 
-        UserApi.getUsers(setUserList);
-        console.log("Mounted!");
+        // UserApi.getUsers(setUserList);
+        // console.log("Mounted!");
 
 
     },[])
@@ -20,14 +20,14 @@ export const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        let id = userList.length + 1;
+        // let id = userList.length + 1;
         let firstName = e.target.fname.value;
         let lastName = e.target.lname.value;
         let pnumber = e.target.phoneNumber.value;
         let username = e.target.username.value;
         let password = e.target.password.value;
 
-        console.log(id);
+        // console.log(id);
 
         createUser(firstName, lastName, pnumber, username, password);
         // UserApi.createUser(id, firstName, lastName, pnumber, username, password);
@@ -41,7 +41,11 @@ export const Register = () => {
 
     async function createUser(firstName, lastName, pnumber, username, password){
 
-        const { error} = await supabase.from("users").insert({
+        // const bcrypt = require('bcryptjs');
+        // const salt = bcrypt.genSaltSync(10);
+
+
+        const { error } = await supabase.from("users").insert({
             firstName: firstName, 
             lastName: lastName, 
             phoneNumber: pnumber,
@@ -63,7 +67,10 @@ export const Register = () => {
              <div className="container text-center">
         <div className="row align-items-center">
         <h1>Register</h1>
-            <div className="col">
+        <div class="alert alert-danger" role="alert">
+            Register disabled due to security still being implemented
+        </div>
+        <div className="col">
 
             </div>  
             <div className="col">
@@ -76,20 +83,20 @@ export const Register = () => {
                             <div className="col">
                                 <div className="mb-3">
                                     <label className="form-label" htmlFor="fname">First Name</label>
-                                    <input className="form-control" type="text" id="fname" name="fname" pattern="[aA-zZ]+" placeholder="John"/>
+                                    <input className="form-control" type="text" id="fname" name="fname" pattern="[aA-zZ]+" placeholder="John" disabled/>
                                 </div>
                             </div>
                             <div className="col">
                                 <div className="mb-3">
                                     <label className="form-label" htmlFor="lname">Last Name:</label>
-                                    <input className="form-control" type="text" id="lname" name="lname" pattern="[aA-zZ]+" placeholder="Doe"/>
+                                    <input className="form-control" type="text" id="lname" name="lname" pattern="[aA-zZ]+" placeholder="Doe" disabled/>
                                 </div>
                             </div>
                         </div>
 
                          <div className="mb-3">
                              <label className="form-label" htmlFor="phoneNumber">Phone Number: </label>
-                             <input className="form-control" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890"/>
+                             <input className="form-control" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" disabled/>
                         </div>
                         
                     </fieldset>
@@ -97,17 +104,17 @@ export const Register = () => {
                         <legend>User Credentials</legend>
                         <div className="mb-3">
                             <label className="form-label" htmlFor="username">Username:</label>
-                            <input className="form-control" type="text" id="username" name="username" required/>
+                            <input className="form-control" type="text" id="username" name="username" required disabled/>
                         </div>
                         
                         <div className="mb-3">
                             <label className="form-label" htmlFor="password">Password: </label>
-                            <input className="form-control" type="password" id="password" name="password" required/>
+                            <input className="form-control" type="password" id="password" name="password" required disabled/>
                         </div>
                     </fieldset>
 
                     <div className="mb-3">
-                        <input id="registerButton" className="btn btn-outline-primary" type="submit" value="Create Account"/>
+                        <input id="registerButton" className="btn btn-outline-primary" type="submit" value="Create Account" disabled/>
                     </div>
                 </form>
             </div>
