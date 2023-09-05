@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { remove, empty } from "../redux/cartSlice";
 import { Link, useNavigate } from "react-router-dom";
-import OrderApi from "../apis/OrderApi";
+// import OrderApi from "../apis/OrderApi";
 
 import Alert from 'react-bootstrap/Alert';
 import "../styles/theme.css"
@@ -11,7 +11,7 @@ import { supabase } from "../apis/supabaseApi";
 
 export const Cart = () => {
 
-    const [orderList, setOrderList] = useState([]);
+    // const [orderList, setOrderList] = useState([]);
     const [show, setShow] = useState(false);
     const cartList = useSelector((state) => state.cartList);
     const activeUser = useSelector((state) => state.user);
@@ -19,7 +19,7 @@ export const Cart = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        OrderApi.getOrders(setOrderList);
+        // OrderApi.getOrders(setOrderList);
     },[])
 
     const removeFromCart = (product) => {
@@ -31,8 +31,7 @@ export const Cart = () => {
     }
 
     const handleCheckout = () => {
-        let id = orderList.length + 1;
-        if(id === orderList.length || cartList.totalPrice === 0){
+        if(cartList.totalPrice === 0){
             alert("Cart is empty");
         } else{
             

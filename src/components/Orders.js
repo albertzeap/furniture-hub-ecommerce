@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import OrderApi from "../apis/OrderApi";
+// import OrderApi from "../apis/OrderApi";
 import { useSelector } from "react-redux";
 import { supabase } from "../apis/supabaseApi";
 
@@ -12,7 +12,10 @@ export const Orders = () => {
     const [toggle, setToggle] = useState(false);
 
     useEffect(() => {
+
+  
         getOrderByUserId();
+    
         // OrderApi.getOrderByUserId(setOrders, activeUser.userId);
 
     }, [activeUser.userId])
@@ -62,9 +65,9 @@ export const Orders = () => {
                                 <td>{order.products.length}</td>
 
                                 {order.totalPrice > 2000 ? (
-                                <td>${order.totalPrice * 0.9}.00</td>
+                                <td>${order.totalPrice * 0.9}</td>
                                 ) : (
-                                <td>${order.totalPrice}.00</td>
+                                <td>${order.totalPrice}</td>
                                 )}
 
                                 {toggle === true ? (
@@ -78,7 +81,7 @@ export const Orders = () => {
                                         </div>
 
                                         <div className="col-md-4 col-lg-3">
-                                            <p>${product.price}.00</p>
+                                            <p>${product.price}</p>
                                         </div>
                                     </div>
                                     ))}
