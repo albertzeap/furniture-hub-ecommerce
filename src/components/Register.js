@@ -48,6 +48,8 @@ export const Register = () => {
         if(error){
             console.error("Error creating user: ", error);
             alert("User could not be created.")
+        } else{
+            alert("User successfully created!");
         }
         
 
