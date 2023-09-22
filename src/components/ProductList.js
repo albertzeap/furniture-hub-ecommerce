@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { add } from "../redux/cartSlice";
 
 import Alert from 'react-bootstrap/Alert';
@@ -21,7 +21,6 @@ export const ProductList = () => {
     const [show, setShow] = useState(false);
     const [showProduct, setShowProduct] = useState(false);
     
-    const cart = useSelector((state) => state.cartList);
     const dispatch = useDispatch();
 
     useEffect(()=> {
@@ -36,7 +35,6 @@ export const ProductList = () => {
 
     async function getProducts(){
         const { data } = await supabase.from("products").select();
-        console.log(data)
         setProductList(data);
     }
 
@@ -44,8 +42,6 @@ export const ProductList = () => {
     const addToCart = (product) => {
         setShow(true);
         dispatch(add(product));
-
-        console.log(cart)
     }
 
     return(

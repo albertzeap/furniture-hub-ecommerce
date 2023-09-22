@@ -20,10 +20,7 @@ export const Login = () => {
 
     useEffect(() => {
         
-        if(user === undefined){
-           alert("Invalid Credentials")
-        }
-        else if(user.id > 0){
+        if(user.id > 0){
             alert("Login sucessfull!");
             dispatch(login(user));
             navigate("/");
@@ -34,6 +31,7 @@ export const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault();
+       
         getUserByCredentials(e.target.username.value, e.target.password.value );
         e.target.username.value = "";
         e.target.password.value = "";
@@ -41,10 +39,23 @@ export const Login = () => {
 
     async function getUserByCredentials(username, password){
 
+        let bcrypt = require('bcryptjs');
+
         const { data, error} = await supabase.from("users").select()
-            .eq('username', username)
-            .eq('password', password);
-        setUser(data[0]);
+            .eq('username', username);
+        
+        if(data.length !== 0){
+
+            bcrypt.compare(password, data[0].password, (err, res) => {
+    
+                if(res) setUser(data[0]);
+                else alert("Invalid Credentials");
+
+            });
+
+        } else alert("Invalid Credentials");
+        
+        
 
         if(error){
             console.error("Error fetching user: ", error);
@@ -55,12 +66,7 @@ export const Login = () => {
         <section>
             <div className="container text-center">
                 <div className="row align-items-center">
-                    <h1>Login</h1>
-                    <div class="alert alert-success" role="alert">
-                        <p>To test out site, use the following credentials:</p>
-                        <p>Username: username</p>
-                        <p>Password: password</p>
-                    </div>
+                    <h1 className="pb-4">Login</h1>
                     <div className="col">
                         
                     </div>
