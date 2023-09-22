@@ -21,7 +21,6 @@ export const ActiveNavbar = () => {
     }
 
     useEffect(() => {
-        console.log(cart.products.length);
     },[cart]);
 
 
