@@ -12,6 +12,7 @@ import { Orders } from "./components/Orders";
 
 
 import 'bootstrap/dist/css/bootstrap.css';
+import { Product } from "./components/Product";
 
 
 // Put any other imports below so that CSS from your
@@ -27,7 +28,7 @@ function App() {
         {activeUser.userId === 0 ? <Navbar/> : <ActiveNavbar/> }
         
         <Routes>
-          <Route path="/" exact element={<ProductList/>}/>
+          <Route path="/" exact element={<Product/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
