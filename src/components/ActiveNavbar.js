@@ -5,7 +5,6 @@ import { logout } from "../redux/userSlice";
 import { empty } from "../redux/cartSlice";
 
 import Badge from 'react-bootstrap/Badge';
-import "../styles/theme.css"
 
 export const ActiveNavbar = () => {
 

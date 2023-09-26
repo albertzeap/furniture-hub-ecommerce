@@ -1,8 +1,6 @@
 import React from "react";
 import { supabase } from "../apis/supabaseApi";
 
-import "../styles/theme.css"
-
 export const Register = () => {
 
     

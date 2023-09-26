@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Alert from 'react-bootstrap/Alert';
 import { ProductList } from "./ProductList";
+import { SearchBar } from "./SearchBar";
 
-
-
-import "../styles/theme.css"
 
 
 export const Product = () => {
@@ -28,19 +26,14 @@ export const Product = () => {
     }
  
     return (
-        <div className="container">
-            <section className="hero-section">
+        <div className="container py-4">
+            <section className="hero-section py-4">
                 <div className="hero-content">
                     <h1 className="text-center">Welcome to Our Furniture Store</h1>
                     <p className="text-center">Discover the best quality furniture for your home.</p>
                 </div>
             </section>
-            <br/>
-            <br/>
-            <section>
-                <h2 className="text-center">Our Products</h2>
-            </section>
-                <AddedModal/>
+            <AddedModal/>
             <div className="row justify-content-center">
                 <ProductList setShow={setShow}/>
             </div>

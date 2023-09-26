@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
-import "../styles/theme.css"
 import { supabase } from "../apis/supabaseApi";
 
 export const OrderSummary = () => {

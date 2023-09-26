@@ -3,10 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { remove, empty } from "../redux/cartSlice";
 import { Link, useNavigate } from "react-router-dom";
-// import OrderApi from "../apis/OrderApi";
 
 import Alert from 'react-bootstrap/Alert';
-import "../styles/theme.css"
 import { supabase } from "../apis/supabaseApi";
 
 export const Cart = () => {

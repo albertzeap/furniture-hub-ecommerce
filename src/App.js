@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { ProductList } from "./components/ProductList";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import { Cart } from "./components/Cart";
 import { ActiveNavbar } from "./components/ActiveNavbar";
 import { OrderSummary } from "./components/OrderSummary";
+import { Product } from "./components/Product";
 
 import { useSelector } from 'react-redux'
 import { Orders } from "./components/Orders";
 
 
 import 'bootstrap/dist/css/bootstrap.css';
-import { Product } from "./components/Product";
+import '../src/styles/theme.css'
 
 
 // Put any other imports below so that CSS from your
