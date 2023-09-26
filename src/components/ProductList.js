@@ -32,12 +32,15 @@ export const ProductList = ({setShow}) => {
     
     const addToCart = (product) => {
         setShow(true);
+
+        console.log(product);
+
+
         dispatch(add(product));
     }
 
     const StockView = ({product}) => {
         if(product.stock){
-            console.log("We have stock")
             return (
                 <div className="d-flex flex-column justify-content-center align-items-center">
                     <button id="addToCart" className="btn d-flex" onClick={() => addToCart(product)}>
@@ -71,7 +74,7 @@ export const ProductList = ({setShow}) => {
             return (
 
                 <div className="d-flex justify-content-center">
-                    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                    <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
                 </div>
                 
             )
@@ -103,9 +106,10 @@ export const ProductList = ({setShow}) => {
                         return product;
                     }
                 }).map((product) => (
-                    <div key={product.id} id="productCard" className="card text-start text-center m-3 align-content-center" style={{width: "18.5rem"}}>
-                            
-                            <img className="card-img-top" src={product.image} alt="Title" style={{height: "15rem"}}/>
+                    <div key={product.id} id="productCard" className="card text-start text-center m-3 align-content-center rounded-4" style={{width: "18.5rem"}}>
+                            <div className="product-image-container card-header">
+                                <img className="card-img-top pt-2 rounded-4" src={product.image} alt="Title" style={{height: "15rem"}}/>
+                            </div>
                             <div className="card-body">
                                 <h4 id="productName" className="card-title" style={{color: "#3D2813"}}>{product.productName}</h4>
                                 <p className="card-text text-muted">{product.description}</p>

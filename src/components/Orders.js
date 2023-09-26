@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { supabase } from "../apis/supabaseApi";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,13 +10,20 @@ export const Orders = () => {
     const activeUser = useSelector((state) => state.user);
     const [orders, setOrders] = useState([]);
     const [toggle, setToggle] = useState(false);
+    const navigate = useNavigate();
+
+    const checkIsValid = () => {
+        console.log(activeUser.id);
+        if(!activeUser.id){
+            navigate("/");
+        }
+    }
 
     useEffect(() => {
 
-  
+        checkIsValid();
         getOrderByUserId();
     
-
     }, [activeUser.userId])
 
     async function getOrderByUserId(){

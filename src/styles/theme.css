@@ -1,5 +1,11 @@
 
 /* Product View Styles */
+
+.product-image-container{
+  border: none;
+  background-color: white;
+}
+
 #productCard{
     border-bottom: 1px solid  #587547;
 }
@@ -133,7 +139,7 @@
     }
 
 
-    
+    /* CSS Loader */
     .lds-roller {
       display: inline-block;
       position: relative;
