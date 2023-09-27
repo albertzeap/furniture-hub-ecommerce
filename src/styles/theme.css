@@ -80,6 +80,15 @@
   border: none;
 }
 
+/* Register Form */
+.reg-form{
+  border-radius: 2rem;
+}
+
+/* Login Form */
+.form-container{
+  width: 100%;
+}
 
 /* Search Bar */
 .search-box{

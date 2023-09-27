@@ -21,7 +21,7 @@ export const Orders = () => {
 
     useEffect(() => {
 
-        checkIsValid();
+        // checkIsValid();
         getOrderByUserId();
     
     }, [activeUser.userId])

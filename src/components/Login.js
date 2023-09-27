@@ -5,6 +5,7 @@ import { login } from "../redux/userSlice";
 import { useSelector, useDispatch } from 'react-redux'
 
 import { supabase } from "../apis/supabaseApi";
+import { Input } from "./form/Input";
 
 
 
@@ -17,6 +18,7 @@ export const Login = () => {
     const activeUser = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         
@@ -65,12 +67,14 @@ export const Login = () => {
     return(
         <section>
             <div className="container text-center">
-                <div className="row align-items-center">
+                
                     <h1 className="pb-4">Login</h1>
-                    <div className="col">
-                        
-                    </div>
-                    <div className="col">
+                    <p className="pb-3">Don't have an account? <Link to="/register">Sign up here</Link></p>
+
+                    
+                    
+                    <div className="m-auto w-50">
+
 
                         {activeUser.userId !== 0 ? 
                             <div>
@@ -78,28 +82,32 @@ export const Login = () => {
                                 <Link to="/" className="btn btn-outline-primary">Browse Products</Link>
                             </div> :  
                         
-                            <form name="logForm" onSubmit={handleLogin}>
-                            
-                                <div className="mb-3">
-                                        <label className="form-label" htmlFor="username">Username</label>
-                                        <input className="form-control" type="text" id="username" name="username" required/><br/>
-                                </div>
+                        <form name="logForm" onSubmit={handleLogin}>
+                                
+                                <Input 
+                                    label="Username"
+                                    id="username"
+                                    type="text"
+                                    placeholder="Username"
+                                    formText=""
+                                    isFormText={false}
+                                    />
+                                <Input 
+                                    label="Password"
+                                    id="password"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="Password"
+                                    formText=""
+                                    isFormText={false}
                                     
-                                <div className="mb-3">
-                                    <label className="form-label" htmlFor="password">Password</label>
-                                    <input className="form-control" type="password" id="password" name="password" required/><br/>
-                                </div>
+                                    />
                         
-                                <input id="loginButton" className="btn btn-outline-primary" type="submit" value="Login"/>
+                                <input id="loginButton" className="btn btn-outline-primary w-100" type="submit" value="Login"/>
                             </form>
                         }
-                       
                     </div>
-                    <div className="col">
-                      
-                    </div>
+                 
                 </div>
-            </div>
         </section>
     );
 }
