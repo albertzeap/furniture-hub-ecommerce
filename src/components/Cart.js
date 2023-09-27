@@ -33,7 +33,10 @@ export const Cart = () => {
             
             createOrder();
             dispatch(empty());
-            navigate("/orderSummary")
+
+            setTimeout(() => {
+                navigate("/orderSummary")
+            }, 1000);
           
         }
     }
@@ -123,7 +126,7 @@ export const Cart = () => {
                     <div className="card sticky-bottom">
                         <div className="card-body">
                             <div className="row d-flex justify-content-between">
-                                <h5 className="text-muted">Total Price: <span className="text-black">${cartList.totalPrice}</span></h5>
+                                <h5 className="text-muted">Total Price: <span className="text-black">${(cartList.totalPrice).toFixed(2)}</span></h5>
                             </div>
                             <br/>
                             <div className="row d-flex justify-content-between align-items-center">

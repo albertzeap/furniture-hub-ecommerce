@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux'
-import { add } from "../redux/cartSlice";
-import { supabase } from "../apis/supabaseApi";
+import { add } from "../../redux/cartSlice";
+import { supabase } from "../../apis/supabaseApi";
 import { SearchBar } from "./SearchBar";
 import { Card, Placeholder } from "react-bootstrap";
 

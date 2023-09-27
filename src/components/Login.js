@@ -25,11 +25,11 @@ export const Login = () => {
         if(user.id > 0){
             alert("Login sucessfull!");
             dispatch(login(user));
-            navigate("/");
+            // navigate("/");
         }
 
 
-    }, [user,dispatch, navigate])
+    }, [user,dispatch])
 
     const handleLogin = (e) => {
         e.preventDefault();

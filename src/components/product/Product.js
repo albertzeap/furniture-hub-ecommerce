@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Alert from 'react-bootstrap/Alert';
 import { ProductList } from "./ProductList";
-import { SearchBar } from "./SearchBar";
+
 
 
 

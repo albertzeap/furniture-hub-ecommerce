@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/navbar/Navbar";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import { Cart } from "./components/Cart";
-import { ActiveNavbar } from "./components/ActiveNavbar";
-import { OrderSummary } from "./components/OrderSummary";
-import { Product } from "./components/Product";
+import { ActiveNavbar } from "./components/navbar/ActiveNavbar";
+import { OrderSummary } from "./components/order/OrderSummary";
+import { Product } from "./components/product/Product";
+import { Orders } from "./components/order/Orders";
 
 import { useSelector } from 'react-redux'
-import { Orders } from "./components/Orders";
 
 
 import 'bootstrap/dist/css/bootstrap.css';

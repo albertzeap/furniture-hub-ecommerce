@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { supabase } from "../apis/supabaseApi";
+import { supabase } from "../../apis/supabaseApi";
 import { format } from 'date-fns';
 
 export const OrderSummary = () => {
@@ -83,7 +83,7 @@ export const OrderSummary = () => {
                                             <p className="mb-0">Discount</p>
                                         </div>
                                         <div className="col-md-4 col-lg-3">
-                                            {orderList.length > 0 ? <p className="mb-0">-${orderList[orderList.length - 1].totalPrice > 2000 ? orderList[orderList.length - 1].totalPrice * 0.1 : 0 }.00</p> : <p>...</p> }
+                                            {orderList.length > 0 ? <p className="mb-0">-${orderList[orderList.length - 1].totalPrice > 2000 ? (orderList[orderList.length - 1].totalPrice * 0.1).toFixed(2) : 0 }</p> : <p>...</p> }
                                             
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@ export const OrderSummary = () => {
                                 <div className="row my-4">
                                     <div className="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
                                         <strong>Total Price</strong>
-                                        {orderList.length > 0 ? <p id="totalPrice" className="lead fw-bold mb-0">${orderList[orderList.length - 1].totalPrice > 2000 ? orderList[orderList.length - 1].totalPrice * 0.9 : orderList[orderList.length - 1].totalPrice  }</p> : <p>...</p>}
+                                        {orderList.length > 0 ? <p id="totalPrice" className="lead fw-bold mb-0">${orderList[orderList.length - 1].totalPrice > 2000 ? (orderList[orderList.length - 1].totalPrice * 0.9).toFixed(2) : orderList[orderList.length - 1].totalPrice  }</p> : <p>...</p>}
                                     </div>
                                 </div>
                             </div>
