@@ -33,10 +33,8 @@ export const Cart = () => {
             
             createOrder();
             dispatch(empty());
-
-            setTimeout(() => {
-                navigate("/orderSummary")
-            }, 1000);
+            navigate("/orderSummary")
+          
         }
     }
 

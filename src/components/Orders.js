@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { supabase } from "../apis/supabaseApi";
 import { useNavigate } from "react-router-dom";
-
+import { format } from 'date-fns';
 
 
 export const Orders = () => {
@@ -17,6 +17,16 @@ export const Orders = () => {
         if(!activeUser.id){
             navigate("/");
         }
+    }
+
+    const parseDate = (date) => {
+        const dateTime = new Date(date);
+        const formattedDate = format(dateTime, 'MM/dd/yyyy');
+        const formattedTime = format(dateTime, 'HH:MM');
+
+        console.log(formattedDate + formattedTime);
+
+        return formattedDate + " @ " + formattedTime;
     }
 
     useEffect(() => {
@@ -67,7 +77,7 @@ export const Orders = () => {
                                     <button className="btn btn-link" onClick={handleToggle}>{order.id}</button>
                                 </th>
 
-                                <td>{order.date}</td>
+                                <td>{parseDate(order.date)}</td>
                                 <td>{order.products.length}</td>
 
                                 {order.totalPrice > 2000 ? (
