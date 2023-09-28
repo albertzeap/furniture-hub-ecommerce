@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import {AiFillCheckCircle} from 'react-icons/ai'
 import {ImCross} from 'react-icons/im'
 
-export const Input = ({label, id, type, placeholder, isFormText, formText, pattern, regex}) => {
+export const Input = ({label, id, type, placeholder, isFormText, formText, pattern, regex, className}) => {
 
   const [isValid, setIsValid] = useState(false);
 
@@ -11,7 +11,7 @@ export const Input = ({label, id, type, placeholder, isFormText, formText, patte
   const FormText = () => {
     if(isFormText){
       return (
-        <div className="form-text">
+        <div className={className ? `form-text d-flex justify-content-start ${className}` : "form-text d-flex justify-content-start"}>
           <span className="px-2">{isValid ? <AiFillCheckCircle/> : <ImCross/>}</span>
           {formText}
         </div>

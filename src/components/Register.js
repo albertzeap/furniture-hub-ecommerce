@@ -7,10 +7,9 @@ export const Register = () => {
 
 
     const USERNAME_REGEX = /^[a-zA-Z0-9_\-]{3,16}$/;
-    const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&*])[a-zA-Z\d!@#$%&*]{8,}$/;
     const FNAME_REGEX = /[A-Za-z]+/
     const PNUMBER_REGEX = /[0-9]{3}-[0-9]{3}-[0-9]{4}/;
-
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -31,7 +30,7 @@ export const Register = () => {
         console.log("Password: ", password , hashedPassword);
     
 
-        createUser(firstName, lastName, pnumber, username, hashedPassword);
+        // createUser(firstName, lastName, pnumber, username, hashedPassword);
 
         e.target.fname.value = "";
         e.target.lname.value = "";
@@ -76,12 +75,12 @@ export const Register = () => {
         <p className="pb-3">Already have an account? <Link to="/login">Log in here</Link></p>
         
             <div className="d-flex justify-content-center">
-                <form className="reg-form p-5" name="regform" method="post" onSubmit={handleRegister}>
+                <form className="reg-form" name="regform" method="post" onSubmit={handleRegister}>
                     
-                    <div className="row">
+                    <div className="row pb-5">
 
-                        <div className="col">
-                            <h2 className="pb-3 fs-3">General Information</h2>
+                        <div className="gen-info col p-5">
+                            <h2 className="pb-3 fs-3 text-white">General Information</h2>
                             <Input
                                 label="First Name"
                                 id="fname"
@@ -91,6 +90,7 @@ export const Register = () => {
                                 formText="Must be alphabetic characters"
                                 pattern="[A-Za-z]+"
                                 regex={FNAME_REGEX}
+                                className="text-white"
                             />
                         
                             <Input
@@ -98,8 +98,11 @@ export const Register = () => {
                                 id="lname"
                                 type="text"
                                 placeholder="Last Name"
-                                isFormText={false}
-                                formText=""
+                                isFormText={true}
+                                formText="Must be alphabetic characters"
+                                pattern="[A-Za-z]+"
+                                regex={FNAME_REGEX}
+                                className="text-white"
                             />
                             <Input
                                 label="Phone Number"
@@ -110,11 +113,12 @@ export const Register = () => {
                                 formText="Valid format: xxx-xxx-xxxx"
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                 regex={PNUMBER_REGEX}
+                                className="text-white"
                             />
                          
                         </div>
 
-                        <div className="col">
+                        <div className="acc-credentials col p-5">
 
                         <h1 className="pb-3 fs-3">Account Credentials</h1>
 
@@ -128,23 +132,25 @@ export const Register = () => {
                                 pattern="^[a-zA-Z0-9_\-]{3,16}$"
                                 regex={USERNAME_REGEX}
                             />
+
                             <Input 
                                 label="Password"
                                 id="password"
                                 type={showPassword ? "text" : "password"}
                                 placeholder="Password"
-                                formText="Must have one uppercase, one lowercase, one digit, and be at least 8 characters long"
+                                formText="Must have one uppercase, one lowercase, one digit, at least one special symbol (!@#$%&*) and at least 8 characters long"
                                 isFormText={true}
-                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&*])[a-zA-Z\d!@#$%&*]{8,}$"
                                 regex={PASSWORD_REGEX}
                             />
+                            
+                            <div className="mb-3">  
+                                <input id="registerButton" className="btn btn-outline-primary my-4 w-75" type="submit" value="Create Account" />
+                            </div>
                         </div>
 
                     </div>
 
-                    <div className="mb-3">
-                        <input id="registerButton" className="btn btn-outline-primary w-100" type="submit" value="Create Account" />
-                    </div>
                 </form>
             </div>
 

@@ -66,44 +66,49 @@ export const Login = () => {
 
     return(
         <section>
-            <div className="container text-center">
+            <div className="container text-center my-5">
                 
-                    <h1 className="pb-4">Login</h1>
-                    <p className="pb-3">Don't have an account? <Link to="/register">Sign up here</Link></p>
 
                     
                     
-                    <div className="m-auto w-50">
+                    <div className="login-form m-auto w-50 p-5">
 
 
                         {activeUser.userId !== 0 ? 
                             <div>
-                                <div className="row mt-5"></div>
-                                <Link to="/" className="btn btn-outline-primary">Browse Products</Link>
+                                <div className="row mt-5">
+                                    <h1 className="fs-3 py-2 text-white">Looks like you're logged in!</h1>
+                                    <p className="py-2 text-white">Feel free to browse our products!</p>
+                                </div>
+                                <Link to="/" className="login-button btn btn-outline-primary">Browse Products</Link>
                             </div> :  
-                        
-                        <form name="logForm" onSubmit={handleLogin}>
+                            <>
+                                <h1 className="pb-4 text-white border-bottom">Login</h1>
                                 
-                                <Input 
-                                    label="Username"
-                                    id="username"
-                                    type="text"
-                                    placeholder="Username"
-                                    formText=""
-                                    isFormText={false}
-                                    />
-                                <Input 
-                                    label="Password"
-                                    id="password"
-                                    type={showPassword ? "text" : "password"}
-                                    placeholder="Password"
-                                    formText=""
-                                    isFormText={false}
-                                    
-                                    />
-                        
-                                <input id="loginButton" className="btn btn-outline-primary w-100" type="submit" value="Login"/>
-                            </form>
+                                <p className="py-3 text-white">Don't have an account? <Link className="text-white" to="/register">Sign up here</Link></p>
+                                <form name="logForm" onSubmit={handleLogin}>
+                                        
+                                        <Input 
+                                            label="Username"
+                                            id="username"
+                                            type="text"
+                                            placeholder="Username"
+                                            formText=""
+                                            isFormText={false}
+                                            />
+                                        <Input 
+                                            label="Password"
+                                            id="password"
+                                            type={showPassword ? "text" : "password"}
+                                            placeholder="Password"
+                                            formText=""
+                                            isFormText={false}
+                                            
+                                            />
+                                
+                                        <input id="loginButton" className="btn btn-outline-primary w-100" type="submit" value="Login"/>
+                                </form>
+                            </>
                         }
                     </div>
                  

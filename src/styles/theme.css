@@ -51,12 +51,12 @@
 
 /* Login Page Styles */
 #loginButton {
-    border: 1px solid #587547 ;
-    color: #587547;
+    border: 2px solid rgb(247,245,240) ;
+    color: white;
 }
 #loginButton:hover{
-    background-color: #587547;
-    color: white;
+    background-color: rgb(247,245,240);
+    color: black;
 }
 
 /* Register Page Styles */
@@ -81,13 +81,41 @@
 }
 
 /* Register Form */
-.reg-form{
-  border-radius: 2rem;
+
+.gen-info{
+  background-color: rgb(106,126,104); /* Light blue color for the General Information section */
+ 
+  /* padding: 15px; */
+
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
+
+.acc-credentials{
+  background-color: #f8f8f8; /* Light red color for the User Credentials section */
+  
+  /*  padding: 15px; */
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Login Form */
 .form-container{
   width: 100%;
+}
+
+.login-form{
+  background-color: rgb(106,126,104); 
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.login-button {
+  border: 2px solid rgb(247,245,240) ;
+  color: white;
+}
+.login-button:hover{
+  background-color: rgb(247,245,240);
+  color: black;
 }
 
 /* Search Bar */
