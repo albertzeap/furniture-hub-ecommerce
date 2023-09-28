@@ -55,12 +55,15 @@ export const Orders = () => {
                 
                 <div key={`${order.id}-${i}`} className="row">
 
-                    <div className="col-md-8 col-lg-9">
+                    <div className="col">
                         <p>{i+1}. {product.productName}</p>
                     </div>
 
-                    <div className="col-md-4 col-lg-3">
-                        <p>${product.price}</p>
+                    <div className="col">
+                        <div className="d-flex justify-content-around">
+                            <p>${product.price}</p>
+                            <p>x{product.quantity}</p>
+                        </div>
                     </div>
                 </div>
             ))

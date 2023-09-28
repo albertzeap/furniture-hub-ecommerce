@@ -39,8 +39,10 @@ export const OrderSummary = () => {
         }
     }
 
+ 
+
     return(
-        <div className="container py-5 h-100">
+        <div className="order-summary container py-5 h-100">
 
 
             {showOrder ? (
@@ -65,17 +67,33 @@ export const OrderSummary = () => {
 
                                 <div className="mx-n5 px-5 py-4" >
                                     <div className="border-bottom mb-3">
-                                        <p className="fw-bold">Products</p>
+                                        <p className="fw-bold">Product List</p>
+
+
                                     </div>
+                                    <div className="row">
+                                            <div className="col-md-2 col-lg-9">
+                                                <p className="fw-bold">Product Name</p>
+                                            </div>
+                                            <div className="col-md-2 col-lg-3">
+                                                <div className="d-flex">
+                                                    <p className="fw-bold">Price</p>
+                                                    <p className="px-3 fw-bold">Quantity</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     {orderList.length > 0 ? orderList[orderList.length - 1].products.map((product,i) => (
                                         <div key={i} className="row">
-                                        <div className="col-md-8 col-lg-9">
-                                            <p>{product.productName}</p>
+                                            <div className="col-md-2 col-lg-9">
+                                                <p>{product.productName}</p>
+                                            </div>
+                                            <div className="col-md-2 col-lg-3">
+                                                <div className="d-flex">
+                                                    <p>${product.price}</p>
+                                                    <p className="px-4 text-muted fst-italic">x{product.quantity}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="col-md-4 col-lg-3">
-                                            <p>${product.price}</p>
-                                        </div>
-                                    </div>
                                     )) : <></>}
                                 
                                     <div className="row">

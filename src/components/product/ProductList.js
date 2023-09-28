@@ -3,13 +3,11 @@ import { useDispatch } from 'react-redux'
 import { add } from "../../redux/cartSlice";
 import { supabase } from "../../apis/supabaseApi";
 import { SearchBar } from "./SearchBar";
-import { Card, Placeholder } from "react-bootstrap";
 
-export const ProductList = ({setShow}) => {
+export const ProductList = ({closeAlert}) => {
 
     // Begin with an empty state of products
     const [productList, setProductList] = useState([]);
-    const [showProduct, setShowProduct] = useState(false);
     const [search, setSearch] = useState("");
     
     const dispatch = useDispatch();
@@ -25,18 +23,16 @@ export const ProductList = ({setShow}) => {
     async function getProducts(){
         const { data } = await supabase.from("products").select();
         setProductList(data);
-        setTimeout(() => {
-            setShowProduct(true);
-        },500)
     }
     
     const addToCart = (product) => {
-        setShow(true);
+        closeAlert();
 
-        console.log(product);
-
-
-        dispatch(add(product));
+        const productWithQuantity = {
+            ...product,
+            quantity: 1,
+        };
+        dispatch(add(productWithQuantity));
     }
 
     const StockView = ({product}) => {
@@ -81,8 +77,6 @@ export const ProductList = ({setShow}) => {
         }
     }
 
- 
-
     return(
         <>
 
@@ -120,32 +114,7 @@ export const ProductList = ({setShow}) => {
                             </div>
                         </div>
                 ))
-            }
-
-
-           
-                        
-            {/* <Card  className="text-center m-3" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" style={{ height: '15rem' }} />
-                <Card.Body>
-                    <Placeholder as={Card.Title} animation="glow">
-                        <Placeholder xs={6} />
-                    </Placeholder>
-                    <Placeholder as={Card.Text} animation="glow">
-                        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-                        <Placeholder xs={6} /> <Placeholder xs={8} />
-                    </Placeholder>
-                </Card.Body>
-                <Card.Footer className="pt-3">
-                    <Placeholder as={Card.Text} animation="glow">
-                        <Placeholder xs={7} /> <Placeholder xs={4} /> <Placeholder xs={4} />{' '}
-                        <Placeholder xs={6} /> <Placeholder xs={8} />
-                    </Placeholder>
-                </Card.Footer>
-            </Card> */}
-            
-                
-                            
+            }           
           
         </>
     );

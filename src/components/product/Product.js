@@ -2,20 +2,24 @@ import React, { useState } from "react";
 import Alert from 'react-bootstrap/Alert';
 import { ProductList } from "./ProductList";
 
-
-
-
 export const Product = () => {
 
     const [show,setShow] = useState(false);
 
+    const closeAlert = () => {
+        setShow(true);
+        setTimeout(() => {
+            setShow(false);
+        }, 700)
+    }
+
     const AddedModal = () => {
         if(show){
             return (
-                <div className="row sticky-top">
+                <div className="row fixed-top">
                     <div className="col"></div>
                     <div className="col">
-                        <Alert variant="success" onClose={() => setShow(false)} dismissible>
+                        <Alert className="slide-in-top" variant="success" show={show} onClose={() => setShow(false)} dismissible >
                             <Alert.Heading>Added to cart</Alert.Heading>
                         </Alert>
                     </div>
@@ -35,7 +39,7 @@ export const Product = () => {
             </section>
             <AddedModal/>
             <div className="row justify-content-center">
-                <ProductList setShow={setShow}/>
+                <ProductList closeAlert={closeAlert}/>
             </div>
         </div>
     );

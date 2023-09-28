@@ -36,6 +36,8 @@
     font-style: italic;
 }
 
+
+
 /* Cart Styles */
 #checkoutButton {
     background-color: #587547;;
@@ -81,20 +83,11 @@
 }
 
 /* Register Form */
-
 .gen-info{
-  background-color: rgb(106,126,104); /* Light blue color for the General Information section */
- 
-  /* padding: 15px; */
-
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  background-color: rgb(106,126,104); 
 }
-
 .acc-credentials{
-  background-color: #f8f8f8; /* Light red color for the User Credentials section */
-  
-  /*  padding: 15px; */
-
+  background-color: #f8f8f8; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -116,6 +109,13 @@
 .login-button:hover{
   background-color: rgb(247,245,240);
   color: black;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Search Bar */
@@ -331,4 +331,19 @@
     transform-origin: 0 0; /* see note above */
   }
   .ldio-4oz2t7k5bu4 div { box-sizing: content-box; }
+
+
+  .slide-in-top {
+    animation: slideInTop 0.3s ease-in-out;
+  }
+  
+  @keyframes slideInTop {
+    from {
+      transform: translateY(-100%);
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }
 

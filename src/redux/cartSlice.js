@@ -15,8 +15,16 @@ export const cartSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.totalPrice += action.payload.price;
-      state.products.push(action.payload);
+      const existingProductIndex = state.products.findIndex(product => product.id === action.payload.id)
+
+      if(existingProductIndex !== -1){
+        state.products[existingProductIndex].quantity += 1;
+      } else{
+        state.products.push({...action.payload, quantity: 1});
+      }
+
+      const newTotal = Number((state.totalPrice + action.payload.price).toFixed(2));
+      state.totalPrice = newTotal;
     },
     remove: (state, action) => {
      
@@ -24,7 +32,9 @@ export const cartSlice = createSlice({
       const pos = state.products.map( product => product.id).indexOf(action.payload.id);
 
       // Subtract the value of that item from the total price
-      state.totalPrice -= state.products[pos].price;
+      const newTotal = Number((state.totalPrice - (state.products[pos].price * state.products[pos].quantity)).toFixed(2));
+      state.totalPrice = newTotal;
+      console.log("Total Price:", state.totalPrice);
 
       // Remove it from the cart 
       state.products.splice(pos, 1);
