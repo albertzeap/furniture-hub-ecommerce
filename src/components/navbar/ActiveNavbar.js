@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from "../redux/userSlice";
-import { empty } from "../redux/cartSlice";
+import { logout } from "../../redux/userSlice";
+import { empty } from "../../redux/cartSlice";
 
 import Badge from 'react-bootstrap/Badge';
-import "../styles/theme.css"
 
 export const ActiveNavbar = () => {
 

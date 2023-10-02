@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { supabase } from "../apis/supabaseApi";
-
-import "../styles/theme.css"
+import { Link } from "react-router-dom";
+import { Input } from "./form/Input";
 
 export const Register = () => {
+
+
+    const USERNAME_REGEX = /^[a-zA-Z0-9_\-]{3,16}$/;
+    const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&*])[a-zA-Z\d!@#$%&*]{8,}$/;
+    const FNAME_REGEX = /[A-Za-z]+/
+    const PNUMBER_REGEX = /[0-9]{3}-[0-9]{3}-[0-9]{4}/;
+
+    const [showPassword, setShowPassword] = useState(false);
 
     
     const handleRegister = (e) => {
@@ -22,7 +30,7 @@ export const Register = () => {
         console.log("Password: ", password , hashedPassword);
     
 
-        createUser(firstName, lastName, pnumber, username, hashedPassword);
+        // createUser(firstName, lastName, pnumber, username, hashedPassword);
 
         e.target.fname.value = "";
         e.target.lname.value = "";
@@ -64,58 +72,89 @@ export const Register = () => {
         <div className="alert alert-danger" role="alert">
             Please do not use any personal credentials. This is only a test site!
         </div>
-        <div className="col">
-
-            </div>  
-            <div className="col">
-                <form name="regform" method="post" onSubmit={handleRegister}>
+        <p className="pb-3">Already have an account? <Link to="/login">Log in here</Link></p>
+        
+            <div className="d-flex justify-content-center">
+                <form className="reg-form" name="regform" method="post" onSubmit={handleRegister}>
                     
-                    <fieldset>
-                        <legend>Personal Information</legend>
+                    <div className="row pb-5">
 
-                        <div className="row">
-                            <div className="col">
-                                <div className="mb-3">
-                                    <label className="form-label" htmlFor="fname">First Name</label>
-                                    <input className="form-control" type="text" id="fname" name="fname" pattern="[aA-zZ]+" placeholder="John" />
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="mb-3">
-                                    <label className="form-label" htmlFor="lname">Last Name:</label>
-                                    <input className="form-control" type="text" id="lname" name="lname" pattern="[aA-zZ]+" placeholder="Doe" />
-                                </div>
-                            </div>
-                        </div>
-
-                         <div className="mb-3">
-                             <label className="form-label" htmlFor="phoneNumber">Phone Number: </label>
-                             <input className="form-control" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" />
-                        </div>
+                        <div className="gen-info col p-5">
+                            <h2 className="pb-3 fs-3 text-white">General Information</h2>
+                            <Input
+                                label="First Name"
+                                id="fname"
+                                type="text"
+                                placeholder="First Name"
+                                isFormText={true}
+                                formText="Must be alphabetic characters"
+                                pattern="[A-Za-z]+"
+                                regex={FNAME_REGEX}
+                                className="text-white"
+                            />
                         
-                    </fieldset>
-                    <fieldset>
-                        <legend>User Credentials</legend>
-                        <div className="mb-3">
-                            <label className="form-label" htmlFor="username">Username:</label>
-                            <input className="form-control" type="text" id="username" name="username" required />
+                            <Input
+                                label="Last Name"
+                                id="lname"
+                                type="text"
+                                placeholder="Last Name"
+                                isFormText={true}
+                                formText="Must be alphabetic characters"
+                                pattern="[A-Za-z]+"
+                                regex={FNAME_REGEX}
+                                className="text-white"
+                            />
+                            <Input
+                                label="Phone Number"
+                                id="phoneNumber"
+                                type="tel"
+                                placeholder="First Name"
+                                isFormText={true}
+                                formText="Valid format: xxx-xxx-xxxx"
+                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                regex={PNUMBER_REGEX}
+                                className="text-white"
+                            />
+                         
                         </div>
-                        
-                        <div className="mb-3">
-                            <label className="form-label" htmlFor="password">Password: </label>
-                            <input className="form-control" type="password" id="password" name="password" required />
-                        </div>
-                    </fieldset>
 
-                    <div className="mb-3">
-                        <input id="registerButton" className="btn btn-outline-primary" type="submit" value="Create Account" />
+                        <div className="acc-credentials col p-5">
+
+                        <h1 className="pb-3 fs-3">Account Credentials</h1>
+
+                            <Input      
+                                label="Username"
+                                id="username"
+                                type="text"
+                                placeholder="Username"
+                                formText="Must be 3-16 alphanumeric characters"
+                                isFormText={true}
+                                pattern="^[a-zA-Z0-9_\-]{3,16}$"
+                                regex={USERNAME_REGEX}
+                            />
+
+                            <Input 
+                                label="Password"
+                                id="password"
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
+                                formText="Must have one uppercase, one lowercase, one digit, at least one special symbol (!@#$%&*) and at least 8 characters long"
+                                isFormText={true}
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&*])[a-zA-Z\d!@#$%&*]{8,}$"
+                                regex={PASSWORD_REGEX}
+                            />
+                            
+                            <div className="mb-3">  
+                                <input id="registerButton" className="btn btn-outline-primary my-4 w-75" type="submit" value="Create Account" />
+                            </div>
+                        </div>
+
                     </div>
+
                 </form>
             </div>
-            <div className="col">
 
-            </div>
-            </div>
+        </div>
     </div>
         </section>
     );
