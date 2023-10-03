@@ -30,7 +30,7 @@ export const Register = () => {
         console.log("Password: ", password , hashedPassword);
     
 
-        // createUser(firstName, lastName, pnumber, username, hashedPassword);
+        createUser(firstName, lastName, pnumber, username, hashedPassword);
 
         e.target.fname.value = "";
         e.target.lname.value = "";
